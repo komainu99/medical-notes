@@ -1,0 +1,2848 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>精神医学 2023〜2025年度 統合過去問解説｜HTML版</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 12mm 12mm 15mm 12mm;
+
+      @bottom-left {
+        content: '精神医学｜2023–2025 統合解説';
+        color: #17354C;
+        font-size: 7pt;
+        font-family: 'Noto Sans CJK JP', sans-serif;
+      }
+
+      @bottom-right {
+        content: counter(page) ' / ' counter(pages);
+        color: #17354C;
+        font-size: 7pt;
+        font-family: 'Noto Sans CJK JP', sans-serif;
+      }
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: 'Noto Sans CJK JP', 'Noto Sans', sans-serif;
+      color: #17354C;
+      font-size: 9pt;
+      font-weight: 400;
+      line-height: 1.48;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+      font-weight: 400
+    }
+
+    h1 {
+      font-size: 22pt;
+      line-height: 1.35;
+      letter-spacing: .02em;
+    }
+
+    h2 {
+      font-size: 11.2pt;
+      line-height: 1.4;
+    }
+
+    p {
+      margin-bottom: 2pt
+    }
+
+    .cover {
+      padding-top: 4mm;
+      padding-bottom: 7mm;
+      border-bottom: 2px solid #D96D2B;
+      margin-bottom: 5mm;
+    }
+
+    .eyebrow {
+      color: #D96D2B;
+      font-size: 9pt;
+      font-weight: 700;
+      margin-bottom: 2mm
+    }
+
+    .desc {
+      margin-top: 3mm;
+      font-size: 9pt;
+      line-height: 1.6
+    }
+
+    .stats {
+      display: flex;
+      gap: 3mm;
+      margin-top: 5mm
+    }
+
+    .stat {
+      border: 1px solid #17354C;
+      background: #EDF4F8;
+      padding: 3mm 4mm;
+      min-width: 32mm;
+    }
+
+    .stat-number {
+      font-size: 13pt;
+      color: #D96D2B;
+      font-weight: 700;
+      line-height: 1.3
+    }
+
+    .stat-label {
+      font-size: 8pt
+    }
+
+    .instructions {
+      border-left: 3px solid #D96D2B;
+      padding: 3mm 4mm;
+      background: #EDF4F8;
+      margin: 4mm 0 6mm
+    }
+
+    .note {
+      font-size: 8.4pt;
+      line-height: 1.5
+    }
+
+    .toc {
+      margin-top: 4mm;
+      margin-bottom: 8mm;
+      columns: 2;
+      column-gap: 7mm;
+    }
+
+    .tocrow {
+      break-inside: avoid;
+      display: flex;
+      gap: 1.5mm;
+      font-size: 8.2pt;
+      margin-bottom: 1.5mm;
+    }
+
+    .tocidx {
+      font-weight: 700;
+      color: #D96D2B;
+      min-width: 5mm
+    }
+
+    .theme {
+      margin: 0 0 5mm 0;
+      border: 1px solid rgba(23, 53, 76, .36);
+      background: #FFFFFF;
+      break-inside: auto;
+      padding: 0 0 1mm 0
+    }
+
+    .themehead {
+      background: #EDF4F8;
+      border-left: 4px solid #D96D2B;
+      padding: 3mm 3.5mm 3mm 3mm;
+      display: flex;
+      align-items: center;
+      gap: 2.6mm;
+      break-after: avoid;
+    }
+
+    .index {
+      color: #D96D2B;
+      font-weight: 700;
+      font-size: 11.3pt;
+      min-width: 7mm
+    }
+
+    .themetitle {
+      flex: 1;
+      font-size: 10.9pt;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #D96D2B;
+      color: #FFFFFF;
+      padding: 1.3mm 2.2mm;
+      font-size: 7.5pt;
+      font-weight: 700;
+      line-height: 1.2;
+      white-space: nowrap;
+      letter-spacing: .01em
+    }
+
+    .submeta {
+      break-after: avoid;
+      font-size: 8.2pt;
+      padding: 2mm 3.5mm 1mm;
+      color: #17354C;
+    }
+
+    .qcard {
+      margin: 2mm 3mm 2mm;
+      padding: 2.5mm 3mm;
+      background: #EDF4F8;
+      border: 1px solid rgba(23, 53, 76, .28);
+      break-inside: avoid;
+    }
+
+    .qhead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2mm;
+      margin-bottom: 2.3mm;
+    }
+
+    .qid {
+      font-size: 9pt;
+      color: black;
+      font-weight: 700
+    }
+
+    .answer {
+      font-size: 8.8pt;
+      color: #D96D2B;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .stem {
+      margin: 0 0 2.7mm;
+      font-size: 9pt;
+      line-height: 1.55;
+      white-space: normal;
+    }
+
+    .choices {
+      margin: 0 0 2mm;
+      padding: 0;
+    }
+
+    .choice {
+      display: block;
+      margin: 0 0 1.1mm;
+      line-height: 1.38;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+      font-size: 9pt;
+    }
+
+    .qcard.long {
+      break-inside: auto;
+    }
+
+    .qcard.long .qhead {
+      break-after: avoid;
+    }
+
+    .qcard.long .choices {
+      break-inside: avoid;
+    }
+
+    .question_note {
+      margin-top: 2mm;
+      border-top: 1px solid rgba(23, 53, 76, .22);
+      padding-top: 2mm;
+      font-size: 8.6pt;
+    }
+
+    .mark {
+      color: #D96D2B;
+      font-weight: 700;
+    }
+
+    .variation {
+      background: #FFFFFF;
+      border-left: 2px solid #D96D2B;
+      margin: 2mm 0 0;
+      padding: 2mm 2.3mm;
+      font-size: 8.6pt;
+      break-inside: avoid;
+    }
+
+    .variation .variid {
+      color: #D96D2B;
+      font-weight: 700
+    }
+
+    .flag {
+      font-size: 8.2pt;
+      border: 1px solid #D96D2B;
+      padding: 1.4mm 2mm;
+      margin-top: 2.5mm;
+      background: #FFFFFF;
+    }
+
+    .explain {
+      margin: 3mm 3mm 2mm;
+      border-top: 1px solid rgba(23, 53, 76, .3);
+      padding: 2mm 1mm 0;
+      break-inside: avoid;
+      font-size: 8.9pt;
+      line-height: 1.5;
+    }
+
+    .explain p {
+      margin-bottom: 1.4mm;
+    }
+
+    .crossref {
+      font-size: 8pt;
+      margin: 1mm 3.5mm 2mm;
+    }
+
+    .footnotes {
+      margin: 7mm 0 0;
+      padding: 3mm 4mm;
+      border-left: 3px solid #D96D2B;
+      background: #EDF4F8;
+    }
+
+    .footnotes p {
+      font-size: 8.5pt;
+      margin-bottom: 2.2mm;
+    }
+
+    .indexhead {
+      margin: 8mm 0 2mm;
+      font-size: 13pt;
+      border-bottom: 2px solid #D96D2B;
+      padding-bottom: 2mm;
+    }
+
+    .year_index {
+      font-size: 8.1pt;
+      line-height: 1.55;
+      border: 1px solid rgba(23, 53, 76, .3);
+      margin: 2mm 0 5mm;
+      padding: 3mm 4mm;
+    }
+
+    .indexrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6mm 3.2mm;
+      margin-top: 1.5mm
+    }
+
+    .indexitem {
+      white-space: nowrap;
+    }
+
+    a {
+      color: #17354C;
+      text-decoration: none
+    }
+
+    /* Browser-oriented layout. The PDF's printed composition remains unchanged. */
+    @media screen {
+      html {
+        scroll-behavior: smooth;
+        background: #EDF4F8;
+      }
+
+      body {
+        background: #FFFFFF;
+        max-width: 980px;
+        min-height: 100vh;
+        margin: 20px auto 48px;
+        padding: 28px 36px 46px;
+        box-shadow: 0 1px 12px rgba(23, 53, 76, .12);
+      }
+
+      .cover {
+        padding-top: 0;
+      }
+
+      .toc {
+        columns: 3;
+        column-gap: 19px;
+      }
+
+      .tocrow a:hover,
+      .year_index a:hover {
+        text-decoration: underline;
+        color: #D96D2B;
+      }
+
+      .theme {
+        border-radius: 4px;
+        overflow: hidden;
+        scroll-margin-top: 18px;
+        margin-bottom: 20px;
+      }
+
+      .qcard {
+        border-radius: 3px;
+        padding: 13px 16px;
+        margin: 10px 13px;
+      }
+
+      .themehead {
+        padding: 12px 16px;
+      }
+
+      .explain {
+        padding: 12px 3px 0;
+        margin: 12px 16px;
+      }
+
+      .badge {
+        border-radius: 2px;
+      }
+
+      .backtop {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        display: block;
+        padding: 10px 14px;
+        background: #D96D2B;
+        color: #FFFFFF;
+        font-size: 10pt;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 3px;
+        box-shadow: 0 1px 8px rgba(23, 53, 76, .15);
+      }
+
+      .backtop:hover {
+        text-decoration: underline;
+      }
+    }
+
+    @media screen and (max-width:760px) {
+      body {
+        margin: 0;
+        padding: 16px 14px 35px;
+        box-shadow: none;
+      }
+
+      .toc {
+        columns: 2;
+      }
+
+      h1 {
+        font-size: 19pt;
+      }
+
+      .stats {
+        flex-wrap: wrap;
+      }
+
+      .stat {
+        min-width: 0;
+        flex: 1;
+      }
+
+      .themehead {
+        flex-wrap: wrap;
+      }
+
+      .qcard {
+        margin: 8px;
+        padding: 12px 10px;
+      }
+
+      .qhead {
+        flex-wrap: wrap;
+      }
+
+      .answer {
+        white-space: normal;
+      }
+
+      .backtop {
+        bottom: 10px;
+        right: 10px;
+        font-size: 9pt;
+      }
+    }
+
+    @media screen and (max-width:480px) {
+      .toc {
+        columns: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cover">
+    <div class="eyebrow">PSYCHIATRY · EXAM REVIEW</div>
+    <h1>精神医学　3年分統合過去問解説</h1>
+    <p class="desc">2023・2024・2025年度｜同一症例を統合し、問題文・選択肢・正答・解説・年度差を収録</p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">150問</div>
+        <div class="stat-label">全問題の参照番号</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">57テーマ</div>
+        <div class="stat-label">統合した学習単位</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">9pt</div>
+        <div class="stat-label">問題・選択肢の基本文字</div>
+      </div>
+    </div>
+  </div>
+  <div class="instructions">
+    <p><span class="mark">使い方</span>　各テーマに代表問題を全文掲載し、ほぼ同一の再出題は「年度差」で圧縮しています。年度別の選択肢順序と正答の記号が変わる場合には両方を併記します。</p>
+    <p class="note">本文は原則9ポイント。太字はオレンジの番号・見出し・正答・頻出バッジなどに限定。選択肢は必ずa〜eを独立行で表示しています。</p>
+    <p class="note">原本由来の明白な誤植は修正しました。一方、解答が変わる可能性のある不明瞭な用語は原文を保持し、「原問注意」として表示しています。正答は学習用の推定解答であり、大学の公式解答ではありません。</p>
+  </div>
+  <h2 class="indexhead">テーマ一覧</h2>
+  <div class="toc">
+    <div class="tocrow"><span class="tocidx">01</span><a href="#topic-1">精神医学の方法論と患者数</a></div>
+    <div class="tocrow"><span class="tocidx">02</span><a href="#topic-2">内因性・外因性・心因性の区別</a></div>
+    <div class="tocrow"><span class="tocidx">03</span><a href="#topic-3">病態仮説と遺伝</a></div>
+    <div class="tocrow"><span class="tocidx">04</span><a href="#topic-4">精神医学治療の歴史</a></div>
+    <div class="tocrow"><span class="tocidx">05</span><a href="#topic-5">精神症状の分類（知覚と妄想）</a></div>
+    <div class="tocrow"><span class="tocidx">06</span><a href="#topic-6">統合失調症：妄想知覚と考想伝播</a></div>
+    <div class="tocrow"><span class="tocidx">07</span><a href="#topic-7">統合失調症：一次妄想</a></div>
+    <div class="tocrow"><span class="tocidx">08</span><a href="#topic-8">統合失調症：陽性・陰性症状</a></div>
+    <div class="tocrow"><span class="tocidx">09</span><a href="#topic-9">統合失調症：診断と急性期治療</a></div>
+    <div class="tocrow"><span class="tocidx">10</span><a href="#topic-10">統合失調症：リハビリと地域支援</a></div>
+    <div class="tocrow"><span class="tocidx">11</span><a href="#topic-11">抗精神病薬の基本分類</a></div>
+    <div class="tocrow"><span class="tocidx">12</span><a href="#topic-12">せん妄：症状と素因</a></div>
+    <div class="tocrow"><span class="tocidx">13</span><a href="#topic-13">せん妄：非薬物的介入</a></div>
+    <div class="tocrow"><span class="tocidx">14</span><a href="#topic-14">せん妄：薬剤性リスク</a></div>
+    <div class="tocrow"><span class="tocidx">15</span><a href="#topic-15">リエゾン精神医学：役割</a></div>
+    <div class="tocrow"><span class="tocidx">16</span><a href="#topic-16">リエゾン：退院後の生活支援</a></div>
+    <div class="tocrow"><span class="tocidx">17</span><a href="#topic-17">認知症のスクリーニング</a></div>
+    <div class="tocrow"><span class="tocidx">18</span><a href="#topic-18">心理検査の実施条件</a></div>
+    <div class="tocrow"><span class="tocidx">19</span><a href="#topic-19">レビー小体型認知症（DLB）</a></div>
+    <div class="tocrow"><span class="tocidx">20</span><a href="#topic-20">治療可能な認知機能低下</a></div>
+    <div class="tocrow"><span class="tocidx">21</span><a href="#topic-21">罪業妄想・貧困妄想の症例</a></div>
+    <div class="tocrow"><span class="tocidx">22</span><a href="#topic-22">うつ病：疫学と症状</a></div>
+    <div class="tocrow"><span class="tocidx">23</span><a href="#topic-23">うつ病：症例と薬物治療</a></div>
+    <div class="tocrow"><span class="tocidx">24</span><a href="#topic-24">躁状態：症状と鑑別</a></div>
+    <div class="tocrow"><span class="tocidx">25</span><a href="#topic-25">双極性障害：薬物選択</a></div>
+    <div class="tocrow"><span class="tocidx">26</span><a href="#topic-26">季節性感情障害</a></div>
+    <div class="tocrow"><span class="tocidx">27</span><a href="#topic-27">電気けいれん療法（ECT）</a></div>
+    <div class="tocrow"><span class="tocidx">28</span><a href="#topic-28">認知行動療法・精神分析・森田療法</a></div>
+    <div class="tocrow"><span class="tocidx">29</span><a href="#topic-29">PTSD・解離・強迫症</a></div>
+    <div class="tocrow"><span class="tocidx">30</span><a href="#topic-30">パニック障害・広場恐怖</a></div>
+    <div class="tocrow"><span class="tocidx">31</span><a href="#topic-31">睡眠衛生と不眠症</a></div>
+    <div class="tocrow"><span class="tocidx">32</span><a href="#topic-32">睡眠障害：RBD・ナルコレプシー・概日リズム</a></div>
+    <div class="tocrow"><span class="tocidx">33</span><a href="#topic-33">睡眠薬と作用機序</a></div>
+    <div class="tocrow"><span class="tocidx">34</span><a href="#topic-34">レストレスレッグス症候群</a></div>
+    <div class="tocrow"><span class="tocidx">35</span><a href="#topic-35">正常脳波・睡眠脳波</a></div>
+    <div class="tocrow"><span class="tocidx">36</span><a href="#topic-36">てんかん発作の特徴</a></div>
+    <div class="tocrow"><span class="tocidx">37</span><a href="#topic-37">てんかん重積状態の初期治療</a></div>
+    <div class="tocrow"><span class="tocidx">38</span><a href="#topic-38">軽度意識障害と脳波</a></div>
+    <div class="tocrow"><span class="tocidx">39</span><a href="#topic-39">心理検査：質問紙法・投影法</a></div>
+    <div class="tocrow"><span class="tocidx">40</span><a href="#topic-40">精神病床の最多疾患</a></div>
+    <div class="tocrow"><span class="tocidx">41</span><a href="#topic-41">日本の精神医療制度と動向</a></div>
+    <div class="tocrow"><span class="tocidx">42</span><a href="#topic-42">入院形態：任意・医療保護・措置</a></div>
+    <div class="tocrow"><span class="tocidx">43</span><a href="#topic-43">精神保健福祉センター</a></div>
+    <div class="tocrow"><span class="tocidx">44</span><a href="#topic-44">自殺の疫学</a></div>
+    <div class="tocrow"><span class="tocidx">45</span><a href="#topic-45">神経梅毒・CJD・Huntington病・脳炎</a></div>
+    <div class="tocrow"><span class="tocidx">46</span><a href="#topic-46">橋本脳炎・抗NMDA受容体脳炎</a></div>
+    <div class="tocrow"><span class="tocidx">47</span><a href="#topic-47">ステロイド・CO中毒・肝性脳症</a></div>
+    <div class="tocrow"><span class="tocidx">48</span><a href="#topic-48">アルコール離脱</a></div>
+    <div class="tocrow"><span class="tocidx">49</span><a href="#topic-49">Wernicke脳症とビタミンB1</a></div>
+    <div class="tocrow"><span class="tocidx">50</span><a href="#topic-50">覚醒剤精神病</a></div>
+    <div class="tocrow"><span class="tocidx">51</span><a href="#topic-51">境界性パーソナリティ障害</a></div>
+    <div class="tocrow"><span class="tocidx">52</span><a href="#topic-52">神経性やせ症：特徴・重症度</a></div>
+    <div class="tocrow"><span class="tocidx">53</span><a href="#topic-53">神経性やせ症：症例と介入</a></div>
+    <div class="tocrow"><span class="tocidx">54</span><a href="#topic-54">神経性過食症</a></div>
+    <div class="tocrow"><span class="tocidx">55</span><a href="#topic-55">ASDの診断</a></div>
+    <div class="tocrow"><span class="tocidx">56</span><a href="#topic-56">ADHDの診断と支援</a></div>
+    <div class="tocrow"><span class="tocidx">57</span><a href="#topic-57">発達心理学・青年期</a></div>
+  </div>
+  <section class="theme" id="topic-1">
+    <div class="themehead"><span class="index">01</span>
+      <h2 class="themetitle">精神医学の方法論と患者数</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-1 / 2024-1 / 2025-1</div>
+    <article class="qcard" id="q-2023-1">
+      <div class="qhead"><span class="qid">2023-1</span><span class="answer">正答：e</span></div>
+      <div class="stem">正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. うつ病の患者数は減少傾向にある。</div>
+        <div class="choice">b. 精神科診断では自然科学的方法は用いない。</div>
+        <div class="choice">c. 精神科診断では主治医の主観が影響することはない。</div>
+        <div class="choice">d. 「説明」は共感する能力を用いて患者を理解する方法である。</div>
+        <div class="choice">e. 精神科治療で抗精神病薬が用いられるようになったのは20世紀に入ってからである。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-1">
+      <div class="qhead"><span class="qid">2024-1</span><span class="answer">正答：a・c</span></div>
+      <div class="stem">正しいのはどれか。２つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. ストレス関連障害の患者数は増加している。</div>
+        <div class="choice">b. 精神疾患の患者数は糖尿病の患者数より少ない。</div>
+        <div class="choice">c. 共感する能力を用いて患者を理解する方法を「了解」という。</div>
+        <div class="choice">d. 多くの精神疾患では診断のための生物学的指標が確立している。</div>
+        <div class="choice">e. 精神医学では健康・病的の判断において患者の文化的背景は考慮されない。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-1">
+      <div class="qhead"><span class="qid">2025-1</span><span class="answer">正答：a・b</span></div>
+      <div class="stem">正しいのはどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 多くの精神疾患で診断マーカーは確立していない。</div>
+        <div class="choice">b. 日本において、気分障害の受診患者数は増加傾向にある。</div>
+        <div class="choice">c. 共感する能力を用いて患者を理解する方法を「説明」という。</div>
+        <div class="choice">d. 精神疾患の診断は医師の判断に依拠するため診断基準は存在しない。</div>
+        <div class="choice">e. 精神疾患が脳の疾患と考えられるようになったのは 17 世紀からである。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　了解は共感に基づく理解、説明は因果的理解。精神疾患の多くに確立した診断用バイオマーカーはない。診断基準と文化的背景を併せて評価する。</p>
+      <p><span class="mark">年度比較</span>　2024年は「了解」の定義、2025年は診断マーカーの不在と受診患者数の増加を問う。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-2">
+    <div class="themehead"><span class="index">02</span>
+      <h2 class="themetitle">内因性・外因性・心因性の区別</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-3 / 2024-3 / 2025-2</div>
+    <article class="qcard" id="q-2023-3">
+      <div class="qhead"><span class="qid">2023-3</span><span class="answer">正答：d・e</span></div>
+      <div class="stem">外因性精神疾患はどれか。 2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. うつ病</div>
+        <div class="choice">b. 統合失調症</div>
+        <div class="choice">c. パニック障害</div>
+        <div class="choice">d. ステロイド精神病</div>
+        <div class="choice">e. 脳炎による幻覚妄想状態</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-3">
+      <div class="qhead"><span class="qid">2024-3</span><span class="answer">正答：a・b</span></div>
+      <div class="stem">次の状態像のうち、外因性と考えられるのはどれか。２つ選べ</div>
+      <div class="choices">
+        <div class="choice">a. ステロイド服用患者の幻覚妄想状態</div>
+        <div class="choice">b. パーキンソン病患者の抑うつ状態</div>
+        <div class="choice">c. 統合失調症患者の昏迷状態</div>
+        <div class="choice">d. 適応障害患者の抑うつ状態</div>
+        <div class="choice">e. 双極性障害患者の躁状態</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-2">
+      <div class="qhead"><span class="qid">2025-2</span><span class="answer">正答：a・b・c</span></div>
+      <div class="stem">次の状態・症状のうち、外因性と考えられるのはどれか。3 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. アルコール離脱時の振戦せん妄</div>
+        <div class="choice">b. Huntington 病の幻覚妄想</div>
+        <div class="choice">c. ステロイド服用患者の躁状態</div>
+        <div class="choice">d. 統合失調症の緊張病性昏迷</div>
+        <div class="choice">e. 強迫性障害の戸締まり確認</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　薬剤（ステロイド）、アルコール離脱、神経変性疾患や脳炎などに伴う精神症状は外因性。統合失調症・双極性障害は内因性、適応障害は心因性の典型。</p>
+      <p><span class="mark">年度比較</span>　2024年はステロイドとパーキンソン病、2025年はアルコール離脱・Huntington病・ステロイドが正答。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-3">
+    <div class="themehead"><span class="index">03</span>
+      <h2 class="themetitle">病態仮説と遺伝</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-2 / 2024-11 / 2024-12 / 2025-3 / 2025-4</div>
+    <article class="qcard" id="q-2023-2">
+      <div class="qhead"><span class="qid">2023-2</span><span class="answer">正答：c</span></div>
+      <div class="stem">正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 統合失調症は単一遺伝子疾患である。</div>
+        <div class="choice">b. てんかんは内因性精神障害である。</div>
+        <div class="choice">c. モノアミン仮説はうつ病の病態を説明する仮説である。</div>
+        <div class="choice">d. グルタミン酸仮説は双極性障害の病態を説明する仮説である。</div>
+        <div class="choice">e. 統合失調症治療薬である抗精神病薬はドパミン刺激作用を有する。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-11">
+      <div class="qhead"><span class="qid">2024-11</span><span class="answer">正答：c・d</span></div>
+      <div class="stem">正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 統合失調症は単一遺伝子疾患である。</div>
+        <div class="choice">b. 内因性精神障害において疾患単位は確立されている</div>
+        <div class="choice">c. モノアミン仮説はうつ病の病態を説明する仮説である。</div>
+        <div class="choice">d. 双極I型障害と大うつ病性障害は遺伝的に近縁の疾患である。</div>
+        <div class="choice">e. 統合失調症治療である抗精神病薬はドパミン刺激作用を有する。</div>
+      </div>
+      <div class="flag"><span class="mark">原問注意</span>　原問は「どれか」と記載する一方、c（モノアミン仮説）とd（遺伝的近縁性）はともに妥当な内容。</div>
+    </article>
+    <article class="qcard" id="q-2024-12">
+      <div class="qhead"><span class="qid">2024-12</span><span class="answer">正答：d</span></div>
+      <div class="stem">正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. てんかんは内因性精神障害の一つである。</div>
+        <div class="choice">b. 抗うつ薬が投与されると数日以内に抗うつ作用が出現する。</div>
+        <div class="choice">c. グルタミン酸仮説は双極性障害の病態を説明できる仮説である。</div>
+        <div class="choice">d. 統合失調症や双極性障害に特異的な病理は発見されていない。</div>
+        <div class="choice">e. 統合失調症患者の一卵性双生児はほぼ 100%の確率で統合失調症を発症する。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-3">
+      <div class="qhead"><span class="qid">2025-3</span><span class="answer">正答：d・e</span></div>
+      <div class="stem">次のうち正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 統合失調症は単一遺伝子疾患である。</div>
+        <div class="choice">b. 抗精神病薬はドパミン刺激作用を有する。</div>
+        <div class="choice">c. 電気けいれん療法は主にてんかんを対象としている。</div>
+        <div class="choice">d. モノアミン仮説はうつ病の病態を説明する仮説である。</div>
+        <div class="choice">e. 双極性障害と大うつ病性障害は遺伝的に近縁の疾患である。</div>
+      </div>
+      <div class="flag"><span class="mark">原問注意</span>　原問は単一選択形式だが、d（モノアミン仮説）とe（双極性障害と大うつ病の遺伝的重複）はともに妥当。</div>
+    </article>
+    <article class="qcard" id="q-2025-4">
+      <div class="qhead"><span class="qid">2025-4</span><span class="answer">正答：d</span></div>
+      <div class="stem">正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 認知症は内因性精神障害の 1 つである。</div>
+        <div class="choice">b. グルタミン酸仮説は神経症の病態を説明する仮説である。</div>
+        <div class="choice">c. 抗うつ薬が投与されると直後から抗うつ作用が出現する。</div>
+        <div class="choice">d. 統合失調症やうつ病に特異的な神経病理学的所見は発見されていない。</div>
+        <div class="choice">e. 両親のいずれかが統合失調症患者の子供はほぼ 100%の確率で統合失調症を発症する。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span
+          class="mark">解説</span>　モノアミン仮説はうつ病、ドパミン仮説とグルタミン酸仮説は統合失調症の病態理解に関連。統合失調症は多因子疾患で、抗精神病薬の多くはD2受容体遮断作用を持つ。抗うつ効果は通常即時には現れない。
+      </p>
+      <p><span class="mark">年度比較</span>　2025年は遺伝的近縁性・特異的病理所見の有無も追加。双極性障害とうつ病には遺伝的重複があるが単一疾患ではない。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-4">
+    <div class="themehead"><span class="index">04</span>
+      <h2 class="themetitle">精神医学治療の歴史</h2>
+    </div>
+    <div class="submeta">該当：2024-2</div>
+    <article class="qcard" id="q-2024-2">
+      <div class="qhead"><span class="qid">2024-2</span><span class="answer">正答：e</span></div>
+      <div class="stem">次のうち、最も古くから精神疾患の治療に用いられているのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 電気けいれん療法</div>
+        <div class="choice">b. クロルプロマジン</div>
+        <div class="choice">c. 認知行動療法</div>
+        <div class="choice">d. イミプラミン</div>
+        <div class="choice">e. 精神分析</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　精神分析は19世紀末、電気けいれん療法は1930年代、クロルプロマジンは1950年代。選択肢の「イソプラミン」はイミプラミンの誤記と考えられる。</p>
+      <p><span class="mark">年度比較</span>　2024年単独の歴史問題。最古は精神分析。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-5">
+    <div class="themehead"><span class="index">05</span>
+      <h2 class="themetitle">精神症状の分類（知覚と妄想）</h2>
+    </div>
+    <div class="submeta">該当：2025-5</div>
+    <article class="qcard" id="q-2025-5">
+      <div class="qhead"><span class="qid">2025-5</span><span class="answer">正答：e</span></div>
+      <div class="stem">知覚の障害でないのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 幻嗅</div>
+        <div class="choice">b. 幻視</div>
+        <div class="choice">c. 錯覚</div>
+        <div class="choice">d. 思考化声</div>
+        <div class="choice">e. 妄想知覚</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　幻嗅・幻視・思考化声は知覚の異常。錯覚は実在刺激の誤認。妄想知覚は正常な知覚に了解不能な意味を付与する思考内容の異常で、知覚障害そのものではない。</p>
+      <p><span class="mark">年度比較</span>　2025年は「知覚の障害でないもの」を選ぶ。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-6">
+    <div class="themehead"><span class="index">06</span>
+      <h2 class="themetitle">統合失調症：妄想知覚と考想伝播</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-5 / 2024-21 / 2025-6</div>
+    <article class="qcard long" id="q-2025-6">
+      <div class="qhead"><span class="qid">2025-6</span><span class="answer">正答：c・e</span></div>
+      <div class="stem">35 歳の男性。29 歳で統合失調症と診断され、通院を続けていた。34 歳で「自分は病気ではないから薬は不要だ」と話し、抗精神病薬の内服を中断した。内服中断後 6
+        か月経過したが、「すれちがった人が私の顔を見たのは、自分の親が死んでしまったことを知らせている」「周囲の人すべてに、自分の考えが漏れて知れ渡ってしまっている」と言うようになった。
+        この患者で見られる精神症状として、適切なのはどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 思考途絶</div>
+        <div class="choice">b. 妄想着想</div>
+        <div class="choice">c. 考想伝播</div>
+        <div class="choice">d. 観念奔逸</div>
+        <div class="choice">e. 妄想知覚</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　「顔を見た＝親の死の知らせ」は妄想知覚、「考えが漏れる」は考想伝播。</div>
+      <div class="variation" id="q-2023-5"><span
+          class="variid">2023-5｜正答：c・d</span>　2023年は「考想伝播」がc、「妄想知覚」がd。2025年ではそれぞれc、eとなっている。
+        <div>通行人の視線に特別な意味を付けるのが妄想知覚、自分の考えが漏れるのが考想伝播。</div>
+      </div>
+      <div class="variation" id="q-2024-21"><span
+          class="variid">2024-21｜正答：b・d</span>　2024年では「考想伝播」がb、「妄想知覚」がd。原文の「思考伝播」「構想察知」は医学用語として修正した。
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　通行人が顔を見たことに「親の死亡を知らせた」という特別な意味を与えるのが妄想知覚。自分の考えが他者に知られるのが考想伝播。考想察知など近接概念との区別に注意。
+      </p>
+      <p><span class="mark">年度比較</span>　3年間とも35歳男性、服薬中断後6か月の同一症例。選択肢の順番・用語だけが変更。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-7">
+    <div class="themehead"><span class="index">07</span>
+      <h2 class="themetitle">統合失調症：一次妄想</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2024-33 / 2025-10</div>
+    <article class="qcard" id="q-2024-33">
+      <div class="qhead"><span class="qid">2024-33</span><span class="answer">正答：c・d</span></div>
+      <div class="stem">統合失調症の一次妄想はどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 被毒妄想</div>
+        <div class="choice">b. 追跡妄想</div>
+        <div class="choice">c. 妄想気分</div>
+        <div class="choice">d. 妄想知覚</div>
+        <div class="choice">e. 被害関係妄想</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-10">
+      <div class="qhead"><span class="qid">2025-10</span><span class="answer">正答：c・d</span></div>
+      <div class="stem">統合失調症の一次妄想はどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 被毒妄想</div>
+        <div class="choice">b. 追跡妄想</div>
+        <div class="choice">c. 妄想気分</div>
+        <div class="choice">d. 妄想知覚</div>
+        <div class="choice">e. 被害関係妄想</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　一次妄想は妄想気分・妄想知覚・妄想着想など、心理的に了解できない妄想体験。被毒・追跡・被害関係妄想は内容による分類。</p>
+      <p><span class="mark">年度比較</span>　2024年と2025年は同じ選択肢構成。正答は妄想気分・妄想知覚。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-8">
+    <div class="themehead"><span class="index">08</span>
+      <h2 class="themetitle">統合失調症：陽性・陰性症状</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-6 / 2023-8 / 2024-31 / 2025-8 / 2025-9 / 2025-14 / 2025-15</div>
+    <article class="qcard" id="q-2023-6">
+      <div class="qhead"><span class="qid">2023-6</span><span class="answer">正答：c</span></div>
+      <div class="stem">統合失調症の初期症状として認められにくいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 不眠</div>
+        <div class="choice">b. 不安</div>
+        <div class="choice">c. 爽快気分</div>
+        <div class="choice">d. 妄想気分</div>
+        <div class="choice">e. 抑うつ気分</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　躁的な爽快気分は統合失調症の典型的な初期症状ではない。</div>
+    </article>
+    <article class="qcard" id="q-2023-8">
+      <div class="qhead"><span class="qid">2023-8</span><span class="answer">正答：c・d</span></div>
+      <div class="stem">統合失調症の症状はどれか。 2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 思考制止</div>
+        <div class="choice">b. 観念奔逸</div>
+        <div class="choice">c. 連合弛緩</div>
+        <div class="choice">d. 作為体験</div>
+        <div class="choice">e. 記銘力障害</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-31">
+      <div class="qhead"><span class="qid">2024-31</span><span class="answer">正答：c・d</span></div>
+      <div class="stem">統合失調症の症状はどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 思考制止</div>
+        <div class="choice">b. 観念逸脱</div>
+        <div class="choice">c. 思考途絶</div>
+        <div class="choice">d. 考想伝播</div>
+        <div class="choice">e. 記銘力障害</div>
+      </div>
+      <div class="flag"><span class="mark">原問注意</span>　b「観念逸脱」は原本の語を維持。観念奔逸などへの断定的な読み替えは行っていない。</div>
+    </article>
+    <article class="qcard" id="q-2025-8">
+      <div class="qhead"><span class="qid">2025-8</span><span class="answer">正答：b</span></div>
+      <div class="stem">統合失調症の陰性症状はどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 幻聴</div>
+        <div class="choice">b. 感情鈍麻</div>
+        <div class="choice">c. 思考途絶</div>
+        <div class="choice">d. 被害妄想</div>
+        <div class="choice">e. 緊張病症候群</div>
+      </div>
+    </article>
+    <article class="qcard long" id="q-2025-9">
+      <div class="qhead"><span class="qid">2025-9</span><span class="answer">正答：a・d</span></div>
+      <div class="stem">24 歳の男性。1 か月前から「疲れやすい」と言い出し、自室に閉じこもって過ごしていた。2
+        週間前から「周りの人が自分の悪口を言っている」「悪の組織に狙われている」と訴え、自室で大声を出すなどの行動がみられるようになった。このため父親に伴われ精神科を受診した。診察では表情が乏しく、周りをきょろきょろと見まわし、質問には小声でぼそぼそと話した。
+        大学入学以前は、発達上の問題や適応上の問題はなかった。血液検査、頭部 MRI 及び脳波検査に異常は認めない。違法薬物使用歴はない。この疾患にみられる症状はどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 自我障害</div>
+        <div class="choice">b. 思考制止</div>
+        <div class="choice">c. 観念奔逸</div>
+        <div class="choice">d. 連合弛緩</div>
+        <div class="choice">e. 記銘力障害</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-14">
+      <div class="qhead"><span class="qid">2025-14</span><span class="answer">正答：d</span></div>
+      <div class="stem">統合失調症について正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 幻聴と比べ幻視が多い。</div>
+        <div class="choice">b. 了解可能な妄想が多い。</div>
+        <div class="choice">c. 認知機能の低下は認めない。</div>
+        <div class="choice">d. 自己関係付けを認めることが多い。</div>
+        <div class="choice">e. およそ 1000 人に 1 人がかかるとされる。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-15">
+      <div class="qhead"><span class="qid">2025-15</span><span class="answer">正答：c</span></div>
+      <div class="stem">統合失調症の陽性症状はどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 自閉</div>
+        <div class="choice">b. 意欲減退</div>
+        <div class="choice">c. 関係妄想</div>
+        <div class="choice">d. 感情鈍麻</div>
+        <div class="choice">e. 認知機能障害</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span
+          class="mark">解説</span>　陽性症状は幻覚・妄想・思考障害・自我障害。陰性症状は感情鈍麻・意欲低下・自閉・発語減少。連合弛緩と作為体験は統合失調症で重要。観念奔逸は躁状態、思考制止はうつ病に典型。
+      </p>
+      <p><span class="mark">年度比較</span>　2025年は陰性症状（8）・陽性症状（15）を独立して出題し、14では自己関係付けを問う。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-9">
+    <div class="themehead"><span class="index">09</span>
+      <h2 class="themetitle">統合失調症：診断と急性期治療</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-7 / 2023-9 / 2024-32 / 2024-34 / 2025-14 / 2025-45　｜ 他テーマ参照：1問</div>
+    <article class="qcard long" id="q-2023-7">
+      <div class="qhead"><span class="qid">2023-7</span><span class="answer">正答：c</span></div>
+      <div class="stem">
+        22歳の女性。不眠と、まとまらない言動を心配した家族に伴われて来院した。3年前に母親を亡くした後に、まとまらない言動を示し、約1か月の入院加療で完全寛解に至り仕事に復帰した。その後、通院加療を受けていたが、1年前から通院を中断していた。10日前から友人と海外旅行に行ったが、不眠が続き何かにおびえているような態度を示すようになった。昨日、帰国後もおびえた様子で眠らず、とりとめのないことを呟き、急に攻撃的になったため受診した。診察時、質問に返答することはなく視線を合わせず黙り込んだかと思うと「今、真理をつかむために神と話し合っている。邪魔するな」と興奮状態となった。神経学的所見、血液所見、血液生化学所見、脳波所見および頭部単純MRIに異常を認めない。治療薬として最も適切なのはどれか。
+      </div>
+      <div class="choices">
+        <div class="choice">a. ジアゼパム</div>
+        <div class="choice">b. バルプロ酸</div>
+        <div class="choice">c. オランザピン</div>
+        <div class="choice">d. 炭酸リチウム</div>
+        <div class="choice">e. パロキセチン</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　興奮と幻覚妄想があり、薬物中断後の急性増悪を考える。抗精神病薬が選択肢。</div>
+    </article>
+    <article class="qcard" id="q-2023-9">
+      <div class="qhead"><span class="qid">2023-9</span><span class="answer">正答：d</span></div>
+      <div class="stem">統合失調症について正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 病識は十分であることが多い。</div>
+        <div class="choice">b. 慢性期には薬物治療は必要ない。</div>
+        <div class="choice">c. アカシジアは動作の少なさと遅さが目立つ。</div>
+        <div class="choice">d. 抗精神病薬の副作用には錐体外路症状がある。</div>
+        <div class="choice">e. 陽性症状への薬物効果に比べ、陰性症状への薬物効果が大きい。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-32">
+      <div class="qhead"><span class="qid">2024-32</span><span class="answer">正答：d</span></div>
+      <div class="stem">統合失調症について正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 病識は十分であることが多い。</div>
+        <div class="choice">b. 慢性期に薬物治療は必要ない。</div>
+        <div class="choice">c. アカシジアは動作の少なさと遅さが目立つ。</div>
+        <div class="choice">d. 抗精神病薬の副作用には錐体外路症状がある。</div>
+        <div class="choice">e. 陽性症状への薬物効果に比べ、陰性症状のへの薬物効果が大きい。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-34">
+      <div class="qhead"><span class="qid">2024-34</span><span class="answer">正答：a・b</span></div>
+      <div class="stem">幻覚妄想状態にある統合失調症の治療薬として適切なのはどれか。２つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. オランザピン</div>
+        <div class="choice">b. リスペリドン</div>
+        <div class="choice">c. ラモトリギン</div>
+        <div class="choice">d. フェニトイン</div>
+        <div class="choice">e. イミプラミン</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-45">
+      <div class="qhead"><span class="qid">2025-45</span><span class="answer">正答：a・b・c</span></div>
+      <div class="stem">非定型抗精神病薬はどれか。3 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. リスペリドン</div>
+        <div class="choice">b. オランザピン</div>
+        <div class="choice">c. クエチアピン</div>
+        <div class="choice">d. ハロペリドール</div>
+        <div class="choice">e. クロルプロマジン</div>
+      </div>
+    </article>
+    <div class="crossref">関連する既出問題（重複掲載を省略）：2025-14 → 08</div>
+    <div class="explain">
+      <p><span
+          class="mark">解説</span>　急性期の幻覚妄想には抗精神病薬。リスペリドン・オランザピン・クエチアピンは非定型、ハロペリドール・クロルプロマジンは定型。副作用は錐体外路症状、代謝異常、アカシジアなど。維持療法で再発予防を図る。
+      </p>
+      <p><span class="mark">年度比較</span>　2025年45は非定型抗精神病薬を3つ選択。2023年7は急性期症例でオランザピンを選ぶ。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-10">
+    <div class="themehead"><span class="index">10</span>
+      <h2 class="themetitle">統合失調症：リハビリと地域支援</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2023-17 / 2024-35</div>
+    <article class="qcard" id="q-2024-35">
+      <div class="qhead"><span class="qid">2024-35</span><span class="answer">正答：a</span></div>
+      <div class="stem">統合失調症のリハビリテーションとして適切でないのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 精神分析療法</div>
+        <div class="choice">b. デイケア</div>
+        <div class="choice">c. 作業所</div>
+        <div class="choice">d. 生活技能訓練</div>
+        <div class="choice">e. レクリエーション療法</div>
+      </div>
+      <div class="variation" id="q-2023-17"><span class="variid">2023-17｜正答：c</span>　2023年度では選択肢が異なる：a「生活技能訓練（Social
+        Skills Training：SST）」／b「レクリエーション療法」（代表問題ではe）／c「精神分析療法」（代表問題ではa）／d「デイケア」（代表問題ではb）／e「作業所」（代表問題ではc）。
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　SST・デイケア・作業療法・就労支援を用いる。精神分析療法は統合失調症の標準的リハビリではない。</p>
+      <p><span class="mark">年度比較</span>　2023・2024年はほぼ同一問題。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-11">
+    <div class="themehead"><span class="index">11</span>
+      <h2 class="themetitle">抗精神病薬の基本分類</h2>
+    </div>
+    <div class="submeta">該当：2023-16</div>
+    <article class="qcard" id="q-2023-16">
+      <div class="qhead"><span class="qid">2023-16</span><span class="answer">正答：a・d</span></div>
+      <div class="stem">抗精神病薬はどれか。2つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. リスペリドン</div>
+        <div class="choice">b. 炭酸リチウム</div>
+        <div class="choice">c. パロキセチン</div>
+        <div class="choice">d. クロルプロマジン</div>
+        <div class="choice">e. メチルフェニデート</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　リスペリドン・クロルプロマジンは抗精神病薬。リチウムは気分安定薬、パロキセチンはSSRI、メチルフェニデートは中枢刺激薬。薬剤名と薬効分類を対応させる。</p>
+      <p><span class="mark">年度比較</span>　2023年は抗精神病薬の選択、2025年45は非定型抗精神病薬だけを選ぶ。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-12">
+    <div class="themehead"><span class="index">12</span>
+      <h2 class="themetitle">せん妄：症状と素因</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-10 / 2024-36 / 2025-16</div>
+    <article class="qcard" id="q-2025-16">
+      <div class="qhead"><span class="qid">2025-16</span><span class="answer">正答：b・e</span></div>
+      <div class="stem">せん妄について正しいのはどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 幻覚、妄想は出現しない。</div>
+        <div class="choice">b. 「高齢」は準備因子である。</div>
+        <div class="choice">c. 症状の日内変動を認めない。</div>
+        <div class="choice">d. 見当識は保たれることが多い。</div>
+        <div class="choice">e. 上行性網様体賦活系の障害が関与する。</div>
+      </div>
+      <div class="variation" id="q-2023-10"><span
+          class="variid">2023-10｜正答：b・e</span>　2023年度では選択肢が異なる：b「認知症はリスク因子である。」／c「症状は日内変動を認めない。」。
+      </div>
+      <div class="variation" id="q-2024-36"><span
+          class="variid">2024-36｜正答：b・e</span>　2024年度では選択肢が異なる：b「認知症はリスク要因である。」／c「症状は日内変動を認めない。」。
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　せん妄は急性発症、注意・意識の変動、日内変動が特徴。高齢・認知症は準備因子。幻視や見当識障害を伴う。上行性網様体賦活系を含む覚醒系の機能障害が関連する。</p>
+      <p><span class="mark">年度比較</span>　2023・2024年は認知症をリスク因子、2025年は高齢を準備因子と表現。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-13">
+    <div class="themehead"><span class="index">13</span>
+      <h2 class="themetitle">せん妄：非薬物的介入</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-11 / 2024-37 / 2025-17</div>
+    <article class="qcard" id="q-2025-17">
+      <div class="qhead"><span class="qid">2025-17</span><span class="answer">正答：a</span></div>
+      <div class="stem">せん妄の非薬物的介入・対策として正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 点滴ボトルやカテーテルを見えにくくする。</div>
+        <div class="choice">b. 夜眠れなかった場合は十分に昼寝するよう促す。</div>
+        <div class="choice">c. 患者が時間を気にせず過ごせるよう、時計を置かない。</div>
+        <div class="choice">d. 昼間は静かに過ごしてもらうために部屋のカーテンを閉める。</div>
+        <div class="choice">e. 患者が普段使っている補聴器は刺激を避けるために装用させない。</div>
+      </div>
+      <div class="variation" id="q-2023-11"><span class="variid">2023-11｜正答：a</span>　2023年度では問題文・選択肢の内容が代表問題とほぼ一致する。
+        <div>視覚的な刺激を減らし、見当識を保ち、睡眠覚醒リズムを整える。</div>
+      </div>
+      <div class="variation" id="q-2024-37"><span
+          class="variid">2024-37｜正答：a</span>　2024年度では選択肢が異なる：b「夜眠れなかった場合は十分昼寝するように促す。」。
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　時計・カレンダーを置き見当識を保つ。日中の採光、夜間の睡眠確保、補聴器・眼鏡の使用、ライン類の目立たない配置、疼痛や脱水の是正が重要。</p>
+      <p><span class="mark">年度比較</span>　3年間ほぼ完全に同じ5選択肢。正答は点滴ボトルやカテーテルを見えにくくする。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-14">
+    <div class="themehead"><span class="index">14</span>
+      <h2 class="themetitle">せん妄：薬剤性リスク</h2>
+    </div>
+    <div class="submeta">該当：2023-31</div>
+    <article class="qcard" id="q-2023-31">
+      <div class="qhead"><span class="qid">2023-31</span><span class="answer">正答：d・e</span></div>
+      <div class="stem">せん妄のリスクとなる薬剤はどれか。2つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. オレキシン受容体拮抗薬</div>
+        <div class="choice">b. メラトニン受容体作動薬</div>
+        <div class="choice">c. ドパミンD2受容体遮断薬</div>
+        <div class="choice">d. ベンゾジアゼピン系睡眠薬</div>
+        <div class="choice">e. ヒスタミンH2受容体遮断薬</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span
+          class="mark">解説</span>　ベンゾジアゼピン系睡眠薬、抗コリン作用を持つ薬剤、H2受容体拮抗薬などはせん妄誘発に注意。オレキシン受容体拮抗薬やメラトニン受容体作動薬は一般に相対的にリスクが低い。</p>
+      <p><span class="mark">年度比較</span>　2023年は薬剤を2つ選ぶ形式。患者の年齢や併存疾患も考慮。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-15">
+    <div class="themehead"><span class="index">15</span>
+      <h2 class="themetitle">リエゾン精神医学：役割</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-27 / 2024-38 / 2025-11 / 2025-12</div>
+    <article class="qcard" id="q-2024-38">
+      <div class="qhead"><span class="qid">2024-38</span><span class="answer">正答：b</span></div>
+      <div class="stem">精神科リエゾンチームの説明として正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. せん妄には対応しない</div>
+        <div class="choice">b. 心理社会的な問題にも対応する。</div>
+        <div class="choice">c. 看護師のみからなるチームである。</div>
+        <div class="choice">d. 当該患者の担当医とは連携しない</div>
+        <div class="choice">e. 介入は一回のみで終了しなくてはならない</div>
+      </div>
+      <div class="variation" id="q-2023-27"><span
+          class="variid">2023-27｜正答：b</span>　2023年度では選択肢が異なる：d「当該患者の診療の担当医とは連携しない。」／e「介入は1回のみで終了しなくてはならない。」。
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-11">
+      <div class="qhead"><span class="qid">2025-11</span><span class="answer">正答：a</span></div>
+      <div class="stem">精神科リエゾンチームについて正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 心理社会的な問題にも対応する。</div>
+        <div class="choice">b. 看護師のみからなるチームである。</div>
+        <div class="choice">c. 当該患者の診療の担当医とは連携しない。</div>
+        <div class="choice">d. 精神科救急での初期対応を主な目的とする。</div>
+        <div class="choice">e. 患者の身体的苦痛に対する疼痛コントロールのみを担当する。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-12">
+      <div class="qhead"><span class="qid">2025-12</span><span class="answer">正答：e</span></div>
+      <div class="stem">精神科リエゾンチームが身体科の看護師と連携する際の活動内容として、適切なのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 患者の身体疾患の治療方針を決定し指導する。</div>
+        <div class="choice">b. 精神科の専門治療に関する文献レビューを毎朝実施する。</div>
+        <div class="choice">c. 身体科の看護師のメンタルヘルス問題を専門的にカウンセリングする。</div>
+        <div class="choice">d. すべての入院患者に対して、精神状態のスクリーニング検査施行を指示する。</div>
+        <div class="choice">e. 患者の行動や精神状態に対する具体的な接し方やケア方法を助言・指導する。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　リエゾンは身体科と精神科の協働。せん妄、抑うつ、不安、アドヒアランス、心理社会的問題、スタッフへの対応助言を含む。身体科の主治医と連携して継続介入する。</p>
+      <p><span class="mark">年度比較</span>　2025年12は看護師への具体的なケア方法の助言が正答として追加。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-16">
+    <div class="themehead"><span class="index">16</span>
+      <h2 class="themetitle">リエゾン：退院後の生活支援</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2024-39 / 2025-13</div>
+    <article class="qcard long" id="q-2025-13">
+      <div class="qhead"><span class="qid">2025-13</span><span class="answer">正答：e</span></div>
+      <div class="stem">71 歳男性。糖尿病で内科に入院となった。19 歳で統合失調症と診断され、以降、精神科にて加療を受けている。身体状態が改善し、1
+        週間後の退院予定となった。担当医から精神的な評価を依頼され、精神科リエゾンチームが介入した。本人は、1 か月前に母親が亡くなり 1
+        人暮らしになるにあたり、お金や食事の管理などどのようにすればよいかわからず不安だ、と話した。退院後の生活を支援するためにリエゾンチームに加わるべき職種として優先度が高いのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 薬剤師</div>
+        <div class="choice">b. 理学療法士</div>
+        <div class="choice">c. 公認心理師</div>
+        <div class="choice">d. 臨床検査技師</div>
+        <div class="choice">e. 精神保健福祉士</div>
+      </div>
+      <div class="variation" id="q-2024-39"><span
+          class="variid">2024-39｜正答：e</span>　2024年の同症例では陰性症状の記載が加わる。職種の正答は2025年と同じ精神保健福祉士（e）。
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　独居で金銭・食事管理が困難な統合失調症患者には、社会資源・福祉サービスを調整する精神保健福祉士（PSW）の関与が優先される。</p>
+      <p><span class="mark">年度比較</span>　2024・2025年は71歳男性・母の死亡・独居という同一症例。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-17">
+    <div class="themehead"><span class="index">17</span>
+      <h2 class="themetitle">認知症のスクリーニング</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-12 / 2023-34 / 2024-24 / 2024-30 / 2025-18</div>
+    <article class="qcard long" id="q-2024-24">
+      <div class="qhead"><span class="qid">2024-24</span><span class="answer">正答：d</span></div>
+      <div class="stem">85 歳の女性。特記すべき既往歴なし。80 歳で夫と死別してから単身生活であった。82
+        歳ごろから、物忘れが出現し、同じ食品を何度も買うようになった。金銭管理ができなくなり、好きだった料理でも焦がしたりするようになった。単身でもあるにも関わらず、亡くなった夫の分まで食事を作るようになったため、家族ともに当院を受診した。
+        この患者へ施行する心理検査として、優先順位が低いものはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. Mini-Mental State Examination（MMSE）</div>
+        <div class="choice">b. 時計描画テスト（clock drawing test：CDT）</div>
+        <div class="choice">c. 改訂長谷川式簡易知能評価スケール（HDS-R）</div>
+        <div class="choice">d. 東大式エゴグラム（Tokyo University Egogram：TEG）</div>
+        <div class="choice">e. アルツハイマー病評価尺度認知行動試験（Alzheimer’s Disease Assessment Scale-cognitive subscale： ADAS-cog）
+        </div>
+      </div>
+      <div class="variation" id="q-2023-12"><span
+          class="variid">2023-12｜正答：e</span>　2023年の選択肢dはWMS-R、eはMMPI。2024年ではdをTEG、eをADAS-cogへ差し替えた。正答は2023年e、2024年d。
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-30">
+      <div class="qhead"><span class="qid">2024-30</span><span class="answer">正答：d・e</span></div>
+      <div class="stem">認知症のスクリーニングとして、適切なのはどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 文章完成法</div>
+        <div class="choice">b. バウムテスト</div>
+        <div class="choice">c. ロールシャッハーテスト</div>
+        <div class="choice">d. Mini-Mental State Examination</div>
+        <div class="choice">e. 改訂長谷川式簡易知能評価スケール</div>
+      </div>
+      <div class="variation" id="q-2023-34"><span class="variid">2023-34｜正答：d・e</span>　2023年度では選択肢が異なる：c「ロールシャッハテスト」。
+      </div>
+    </article>
+    <article class="qcard long" id="q-2025-18">
+      <div class="qhead"><span class="qid">2025-18</span><span class="answer">正答：e</span></div>
+      <div class="stem">85 歳の女性。特記すべき既往歴なし。80 歳で夫と死別してからは単身生活であった。82
+        歳頃から、物忘れが出現し、同じ食品を何度も買うようになった。金銭管理ができなくなり、好きだった料理でも焦がしたりするようになった。単身であるにも関わらず、亡くなった夫の分まで食事を作るようになったため、家族とともに当院を受診した。
+        診断に有用な心理・精神機能検査はどれか。</div>
+      <div class="choices">
+        <div class="choice">a. バウムテスト</div>
+        <div class="choice">b. Rorschach テスト</div>
+        <div class="choice">c. Minnesota 多面人格検査（MMPI）</div>
+        <div class="choice">d. 簡易精神症状評価尺度（BPRS）</div>
+        <div class="choice">e. Mini-Mental State Examination（MMSE）</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　全般的な認知機能のスクリーニングにはMMSEを用いる。</div>
+    </article>
+    <div class="explain">
+      <p><span
+          class="mark">解説</span>　MMSE・HDS-Rは全般的認知機能のスクリーニング。時計描画は視空間・遂行機能をみる。MMPI・TEG・バウム・ロールシャッハは人格評価などで、認知症の第一選択検査ではない。
+      </p>
+      <p><span class="mark">年度比較</span>　85歳女性の同一症例が3年連続。2025年はMMSEを直接選択、2023・2024年は優先度の低い検査を問う。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-18">
+    <div class="themehead"><span class="index">18</span>
+      <h2 class="themetitle">心理検査の実施条件</h2>
+    </div>
+    <div class="submeta">該当：2023-13</div>
+    <article class="qcard" id="q-2023-13">
+      <div class="qhead"><span class="qid">2023-13</span><span class="answer">正答：a</span></div>
+      <div class="stem">アルツハイマー型認知症評価のための心理検査の説明として、正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 補聴器、眼鏡を使用して検査して良い。</div>
+        <div class="choice">b. 視覚障害の影響を受けづらい検査である。</div>
+        <div class="choice">c. 失語や失行の有無にかかわらず評価できる。</div>
+        <div class="choice">d. 検査時の環境の影響は、検査結果に影響しない。</div>
+        <div class="choice">e. 被験者が指示を理解できない場合でも、例示をすることは許可されない。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　認知機能検査では視力・聴力を補正し、静かな環境で行う。失語・失行・感覚障害は成績に影響する。検査手順の許容範囲内で教示を行い、標準化を守る。</p>
+      <p><span class="mark">年度比較</span>　2023年は眼鏡・補聴器使用の可否を問う。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-19">
+    <div class="themehead"><span class="index">19</span>
+      <h2 class="themetitle">レビー小体型認知症（DLB）</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-14 / 2024-26 / 2025-19</div>
+    <article class="qcard long" id="q-2024-26">
+      <div class="qhead"><span class="qid">2024-26</span><span class="answer">正答：e</span></div>
+      <div class="stem">79 歳の女性。76 歳ごろから時折、物忘れが見られるようになった。物忘れが目立つ時と、買い物をそつなくこなせる時の差が激しいことを家族は気にしていた。78
+        歳ごろから動作が緩慢になり、手の震えも自覚するようになった。79
+        歳になり、壁にかかっている服をみて「おばけが来た」と騒ぐようになり、誰もいない薄暗い台所を指さし「お父さんが立っている」と話すようになったため受診した。身体所見では、筋固縮、安静時振戦といったパーキンソン症状が見られた。
+        この患者で見られる検査所見として、最も適切なものはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 脳波での周期性同期性放電</div>
+        <div class="choice">b. 頭部 MRI での側脳室下角の拡大</div>
+        <div class="choice">c. 脳血流シンチグラムでの楔前部の血流低下</div>
+        <div class="choice">d. 頭部 MRI での有意な前頭葉、側頭葉の萎縮</div>
+        <div class="choice">e. ドパミントランスポーターシンチグラフィの取り込み低下</div>
+      </div>
+      <div class="variation" id="q-2023-14"><span
+          class="variid">2023-14｜正答：c・e</span>　2023年ではc「後頭部の血流低下」、e「MIBG心筋シンチ取り込み低下」を選択肢に掲載。両者ともDLBに整合し、単一正答の指定には疑義がある。
+        <div class="flag"><span class="mark">原問注意</span>　原問は単一選択の形式だが、cとeはいずれもDLBの支持的画像所見。正答数に疑義がある。</div>
+      </div>
+    </article>
+    <article class="qcard long" id="q-2025-19">
+      <div class="qhead"><span class="qid">2025-19</span><span class="answer">正答：e</span></div>
+      <div class="stem">72 歳の男性。幻視を主訴に来院した。1
+        年前から睡眠中に怒鳴ったり、布団を蹴って足をバタバタしていると妻に指摘されるようになった。このころから時々立ちくらみを自覚していた。半年前から徐々に食事や着替えの動作が遅くなった。1
+        か月前から夜中に「部屋の中で見知らぬ人が踊っている」と訴えるようになったため、家族に付き添われて受診した。喫煙は 10 本/ 日、飲酒はビール 350mL/日。意識は清明。身長 163cm、体重 56kg。体温
+        36.4℃。脈拍 68/分、整。血圧 158/86mmHg。呼吸数 16/分。心音と呼吸音とに異常を認めない。腹部は平坦、軟で、肝・脾を触知しない。改訂長谷川式簡易知能評価スケール23点（30点満点）、Mini-Mental
+        State
+        Examination（MMSE）25点（30点満点）。脳神経に異常を認めない。四肢で左右対称性に軽度の筋強剛を認める。腱反射は正常で、運動麻痺、感覚障害および運動失調を認めない。姿勢は前かがみで歩行は小刻みである。尿所見に異常を認めない。血液所見：赤血球
+        342 万、Hb 10.7g/dL、Ht 32%、白血球 8,300、血小板 14 万。血液生化学所見：総蛋白 7.4g/dL、アルブミン 3.8g/dL、総ビリルビン 0.9mg/dL、AST 42U/L、ALT
+        48U/L、LD 354U/L（基準 176〜353）、 γ-GTP 56U/L（基準 8〜50）、アンモニア 32μg/dL（基準 18〜48）、尿素窒素 17mg/dL、クレアチニン 0.9mg/dL、血糖
+        112mg/dL、Na 140mEq/L、K 4.4mEq/L、Cl 104mEq/L、CRP 0.3mg/dL。 診断に最も有用なのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 血中 CK</div>
+        <div class="choice">b. 頭部 MRI</div>
+        <div class="choice">c. 脳脊髄液検査</div>
+        <div class="choice">d. 腹部超音波検査</div>
+        <div class="choice">e. ドパミン・トランスポーター・シンチグラム</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　具体的な幻視、RBD、パーキンソニズムがそろい、DLBが示唆される。</div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　認知機能の変動、具体的な幻視、パーキンソニズム、REM睡眠行動障害が中核的特徴。DATシンチで線条体集積低下、MIBG心筋シンチで心筋集積低下を認め得る。</p>
+      <p><span class="mark">年度比較</span>　2023年はMIBG、2024・2025年はDATシンチを正答とする構成。2025年は長文症例。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-20">
+    <div class="themehead"><span class="index">20</span>
+      <h2 class="themetitle">治療可能な認知機能低下</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-15 / 2024-23 / 2025-20</div>
+    <article class="qcard" id="q-2023-15">
+      <div class="qhead"><span class="qid">2023-15</span><span class="answer">正答：d</span></div>
+      <div class="stem">治療可能な認知症として当てはまらないのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. うつ病</div>
+        <div class="choice">b. 慢性硬膜下血腫</div>
+        <div class="choice">c. 甲状腺機能低下症</div>
+        <div class="choice">d. 進行性核上性麻痺</div>
+        <div class="choice">e. ビタミンB12欠乏症</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-23">
+      <div class="qhead"><span class="qid">2024-23</span><span class="answer">正答：c</span></div>
+      <div class="stem">治療可能な認知症として当てはまらないものはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. うつ病</div>
+        <div class="choice">b. 慢性硬膜下血腫</div>
+        <div class="choice">c. 前頭側頭型認知症</div>
+        <div class="choice">d. 甲状腺機能低下症</div>
+        <div class="choice">e. ビタミン B12 欠乏症</div>
+      </div>
+    </article>
+    <article class="qcard long" id="q-2025-20">
+      <div class="qhead"><span class="qid">2025-20</span><span class="answer">正答：a・e</span></div>
+      <div class="stem">73 歳の女性。記銘力低下を主訴に長女に連れられて来院した。 現病歴：2
+        か月前から急に物忘れがひどくなり、家族に心配され来院した。バスに乗って買い物に行っても、レジでの支払いができなくなり、生活用品は長女が買って届けている。食事は宅配のお弁当を利用しており、ひとりで食べられる。しかし偏食のため食べ残しが多い。着替えは自分でできる。最近は家で過ごす時間が長くなり、友人から誘われても趣味のゲートボールに行かなくなった。
+        既往歴：18 歳時に虫垂炎で手術歴あり。 生活歴：喫煙歴はない。飲酒は機会飲酒。車で 30 分の距離に長女夫婦が住んでいる。アレルギー歴はない。 家族歴：父は心筋梗塞で死亡。母は肺炎で死亡。夫は梅毒罹患歴があり、3
+        年前、75 歳時に膵癌で死亡。 現症：意識は清明。意思疎通は可能で、礼節は保たれている。身長 157cm、体重 52kg。体温 36.2℃。脈拍 84/分、整。血圧 128/76mmHg。呼吸数
+        12/分。皮膚と粘膜に異常を認めない。心音と呼吸音とに異常を認めない。腹部は右下腹部に手術痕を認める。突進歩行や、前傾姿勢は認めない。 検査所見：尿所見：蛋白（－）、糖（－）。血液所見：赤血球 438 万、Hb
+        13.2g/dL、Ht 40%、白血球 6,800、血小板 21 万。血液生化学所見：総蛋白 6.5g/dL、アルブミン 3.5g/dL、AST 26U/L、ALT 18U/L、LD 162U/L（基準
+        124〜222）、γ-GT 16U/L（基準 9〜32）、アンモニア 22μg/dL（基準 18〜48）、尿素窒素 16mg/dL、クレアチニン 0.7mg/dL、血糖 96mg/dL、Na 142mEq/L、 K
+        4.2mEq/L、Cl 98mEq/L、Ca 8.6mg/dL。CRP 0.1mg/dL。血中梅毒トレポネーマ抗体（TPHA）陽性、非トレポネーマ脂質抗体 （RPR）陽性。頭部単純 CT で明らかな異常を認めない。
+        診察医が、記銘力低下の原因を鑑別するために追加すべき血液検査項目はどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 葉酸</div>
+        <div class="choice">b. ビタミン D</div>
+        <div class="choice">c. ビタミン B1</div>
+        <div class="choice">d. β2-マイクログロブリン</div>
+        <div class="choice">e. 甲状腺刺激ホルモン（TSH）</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　葉酸欠乏や甲状腺機能低下症は可逆的な認知機能低下の鑑別に入る。</div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　甲状腺機能低下症、ビタミンB12・葉酸欠乏、慢性硬膜下血腫、正常圧水頭症、うつ病などは鑑別すべき可逆的原因。神経梅毒も評価対象。</p>
+      <p><span class="mark">年度比較</span>　2023年は進行性核上性麻痺、2024年は前頭側頭型認知症を非可逆的原因として選択。2025年20は葉酸・TSHを問う。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-21">
+    <div class="themehead"><span class="index">21</span>
+      <h2 class="themetitle">罪業妄想・貧困妄想の症例</h2>
+    </div>
+    <div class="submeta">該当：2023-4</div>
+    <article class="qcard long" id="q-2023-4">
+      <div class="qhead"><span class="qid">2023-4</span><span class="answer">正答：b・e</span></div>
+      <div class="stem">
+        75歳の女性。特記すべき既往歴はない。73歳時に夫と死別し、夫の遺産の処理を一手に引き受け、疲弊した。翌年から、不眠となり気分の落ち込みが出現した。食欲がなくなり体重が5kg減少した。「夫が死んだのは私のせいだ。大変なことをしでかしてしまった」「夫の遺産が役所にすべて取り上げられてしまう。一文無しになってしまう」と事実と異なることを話すようになり、そわそわ落ち着かなくなった。この患者で見られる症状はどれか。2つ選べ。
+      </div>
+      <div class="choices">
+        <div class="choice">a. 観念奔逸</div>
+        <div class="choice">b. 貧困妄想</div>
+        <div class="choice">c. 誇大妄想</div>
+        <div class="choice">d. 恋愛妄想</div>
+        <div class="choice">e. 罪業妄想</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　財産がなくなるという確信は貧困妄想、夫の死を自責する内容は罪業妄想。</div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　抑うつ気分に一致した妄想として、身に覚えのない責任を確信する罪業妄想、財産が失われると確信する貧困妄想がある。身体の病気を確信する心気妄想と区別する。</p>
+      <p><span class="mark">年度比較</span>　2023年は「財産がなくなる」「夫の死は自分のせい」、2024年は「内臓が腐る」「犯罪を犯した」という内容に変えて出題。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-22">
+    <div class="themehead"><span class="index">22</span>
+      <h2 class="themetitle">うつ病：疫学と症状</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-19 / 2023-20 / 2024-4 / 2024-5 / 2024-20 / 2025-21</div>
+    <article class="qcard" id="q-2023-19">
+      <div class="qhead"><span class="qid">2023-19</span><span class="answer">正答：a・d</span></div>
+      <div class="stem">うつ病の病態と関係が深い神経伝達物質はどれか。 2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. セロトニン</div>
+        <div class="choice">b. グルタミン酸</div>
+        <div class="choice">c. アセチルコリン</div>
+        <div class="choice">d. ノルアドレナリン</div>
+        <div class="choice">e. γアミノ酪酸（GABA）</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2023-20">
+      <div class="qhead"><span class="qid">2023-20</span><span class="answer">正答：a・e</span></div>
+      <div class="stem">うつ病でみられる症状はどれか。2つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 早朝覚醒</div>
+        <div class="choice">b. 思考途絶</div>
+        <div class="choice">c. 血統妄想</div>
+        <div class="choice">d. 陰性症状</div>
+        <div class="choice">e. 午後から夕方にかけて改善する日内変動</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-4">
+      <div class="qhead"><span class="qid">2024-4</span><span class="answer">正答：b</span></div>
+      <div class="stem">うつ病について正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 循環気質者で多い。</div>
+        <div class="choice">b. 男性に比べ女性に多い。</div>
+        <div class="choice">c. 好発年齢は 20 代である。</div>
+        <div class="choice">d. 生涯有病率は 1%程度である。</div>
+        <div class="choice">e. 発症の誘因は認めないことが多い。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-5">
+      <div class="qhead"><span class="qid">2024-5</span><span class="answer">正答：a・d</span></div>
+      <div class="stem">うつ病でみられる症状はどれか。２つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 心気妄想</div>
+        <div class="choice">b. 作為体験</div>
+        <div class="choice">c. 思考散乱</div>
+        <div class="choice">d. 早朝覚醒</div>
+        <div class="choice">e. 午後から夕方にかけて悪化する日内変動</div>
+      </div>
+    </article>
+    <article class="qcard long" id="q-2024-20">
+      <div class="qhead"><span class="qid">2024-20</span><span class="answer">正答：a・d</span></div>
+      <div class="stem">75 歳の女性。特記すべき既往歴はない。73 歳夫と死別し、夫の遺産の処理を一手に引き受け、疲弊するようになった。74
+        歳から、不眠となり気分の落ち込みが出現した。食欲がなくなり、便秘が増悪して体重が 5kg
+        減少した。好きだったテレビドラマを視聴しなくなった。「急に苦しくなって、胃と食道が切れてしまい、何も食べられないし、腸が腐ってしまった。」「家族に迷惑をかけた。自分は大変な犯罪をしでかし、警察に取り囲まれている」と事実と異なることを苦悶の表情で話すようになり、そわそわ落ち着かなくなった。
+        この患者で見られる精神症状はどれか。２つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 罪業妄想</div>
+        <div class="choice">b. 観念奔逸</div>
+        <div class="choice">c. 誇大妄想</div>
+        <div class="choice">d. 心気妄想</div>
+        <div class="choice">e. 注察妄想</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　「腸が腐る」は心気妄想、「犯罪を犯した」は罪業妄想。</div>
+    </article>
+    <article class="qcard" id="q-2025-21">
+      <div class="qhead"><span class="qid">2025-21</span><span class="answer">正答：a・c</span></div>
+      <div class="stem">うつ病でみられる症状はどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 思考制止</div>
+        <div class="choice">b. 思考途絶</div>
+        <div class="choice">c. 心気妄想</div>
+        <div class="choice">d. 睡眠欲求の低下</div>
+        <div class="choice">e. 午後から夕方にかけて悪化する日内変動</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　うつ病では抑うつ気分、興味喪失、意欲低下、思考制止、早朝覚醒、食欲低下、心気・罪業・貧困妄想を生じ得る。典型的日内変動は朝に悪く夕方改善。女性に多い。</p>
+      <p><span class="mark">年度比較</span>　2024年5は早朝覚醒・心気妄想、2025年21は思考制止・心気妄想が正答。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-23">
+    <div class="themehead"><span class="index">23</span>
+      <h2 class="themetitle">うつ病：症例と薬物治療</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2023-22 / 2024-7 / 2024-8</div>
+    <article class="qcard" id="q-2023-22">
+      <div class="qhead"><span class="qid">2023-22</span><span class="answer">正答：c・e</span></div>
+      <div class="stem">うつ病と診断した患者への説明として正しいのはどれか。 2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 「1ヶ月程度で完治します」</div>
+        <div class="choice">b. 「頑張れば早く良くなります」</div>
+        <div class="choice">c. 「できるだけ早く休息に入ることが有効です」</div>
+        <div class="choice">d. 「症状が改善したと思ったら服薬を中止して良いです」</div>
+        <div class="choice">e. 「治療が終了するまで退職などの重大な決断はしないようにしましょう」</div>
+      </div>
+    </article>
+    <article class="qcard long" id="q-2024-7">
+      <div class="qhead"><span class="qid">2024-7</span><span class="answer">正答：d</span></div>
+      <div class="stem">58 歳の男性。不眠と倦怠感を主訴に来院した。３か月前に会社で大きなプロジェクトを任され、
+        睡眠時間を削って働く日々が続いた。上司からは「社運がかかった仕事だから絶対に成功させろよ」と言われ、張り詰めた状態で過ごしていた。２か月後、無事にプロジェクトは成功したが、この頃から夜眠っても何度も目が覚めるようになった。起床時刻になっても身体がだるくて中々起き上がることができない。
+        会社に行っても周囲の言っていることが中々理解できず、書類の処理にも時間がかかるようになった。以前は休日になるとよくゴルフに出かけていたが、今は全くそのような気分になれない。診察時「周りに迷惑をかけているから会社を辞めようと思う」と目に涙をためて述べる。身体診察、採血、頭部
+        CT で異常は認めず、過去に躁状態のエピソードはない。 はじめに投与する薬物として適切なのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. ドネペジル</div>
+        <div class="choice">b. リスペリドン</div>
+        <div class="choice">c. 炭酸リチウム</div>
+        <div class="choice">d. パロキセチン</div>
+        <div class="choice">e. メチルフェニデート</div>
+      </div>
+    </article>
+    <article class="qcard long" id="q-2024-8">
+      <div class="qhead"><span class="qid">2024-8</span><span class="answer">正答：e</span></div>
+      <div class="stem">76
+        歳の男性。希死念慮を伴ううつ病にて２か月前に医療保護入院となった。入院後、三環系抗うつ薬を投与したが、過鎮静となり十分量まで増量することができなかった。そのため、選択的セロトニン再取り込み阻害(SSRI)に切り替え、最大用量まで増量した。現在、最大用量にしてから４週間が経過したが、明らかな効果は認められておらず、2
+        日前から言語的疎通を取ることが困難になった。 対応として適切なのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 現治療を継続する。</div>
+        <div class="choice">b. 炭酸リチウムを加える。</div>
+        <div class="choice">c. 認知行動療法を開始する。</div>
+        <div class="choice">d. 再度三環系抗うつ薬に切り替える。</div>
+        <div class="choice">e. 家族に修正型電気けいれん療法について説明する。</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　重症うつ病・希死念慮・治療抵抗性に加え疎通困難となっており、ECTの検討が優先。</div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　十分な休息、希死念慮の評価、重大決断の延期、抗うつ薬の適切な継続が重要。重症・精神病症状・切迫した自殺危険・治療抵抗例ではECTを検討する。</p>
+      <p><span class="mark">年度比較</span>　2024年7はパロキセチン、8は高齢の重症治療抵抗例でECTを検討。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-24">
+    <div class="themehead"><span class="index">24</span>
+      <h2 class="themetitle">躁状態：症状と鑑別</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-18 / 2023-21 / 2023-23 / 2024-6 / 2025-22</div>
+    <article class="qcard" id="q-2023-18">
+      <div class="qhead"><span class="qid">2023-18</span><span class="answer">正答：b・d・e</span></div>
+      <div class="stem">双極性障害について正しいのはどれか。3つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 女性に多い。</div>
+        <div class="choice">b. 循環気質と関連がある。</div>
+        <div class="choice">c. 生涯有病率は5%程度である。</div>
+        <div class="choice">d. 好発年齢はうつ病よりも若い。</div>
+        <div class="choice">e. 発症や再発に心因を認めないことがある。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2023-21">
+      <div class="qhead"><span class="qid">2023-21</span><span class="answer">正答：a・b</span></div>
+      <div class="stem">躁状態でみられる症状はどれか。2つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 観念奔逸</div>
+        <div class="choice">b. 行為心迫</div>
+        <div class="choice">c. 心気妄想</div>
+        <div class="choice">d. 滅裂思考</div>
+        <div class="choice">e. 睡眠時間の延長</div>
+      </div>
+    </article>
+    <article class="qcard long" id="q-2023-23">
+      <div class="qhead"><span class="qid">2023-23</span><span class="answer">正答：b・d</span></div>
+      <div class="stem">
+        28歳の男性。営業職。普段は快活であるが、2年前になんとなく仕事に打ち込めず、趣味のゴルフも楽しめない時期が3か月ほどあった。この春に本社から地方の支社に異動となり、新人の教育係に抜擢された。当初、「面倒見がよい」と後輩を指導する姿勢は高く評価されたが、あるとき教育を受けている新人から管理者に本人について相談があった。2週間前から、仕事に関するSNSが頻繁に届くようになり、「俺はもうすぐこの会社のトップになる」と非現実的なことを本気で言うようになったという。夜もあまり寝ている様子がなく、SNSは深夜帯にも頻繁に届くという。この患者に投与する薬物として適切なのはどれか。2つ選べ。
+      </div>
+      <div class="choices">
+        <div class="choice">a. フェニトイン</div>
+        <div class="choice">b. 炭酸リチウム</div>
+        <div class="choice">c. クロミプラミン</div>
+        <div class="choice">d. バルプロ酸ナトリウム</div>
+        <div class="choice">e. 選択的セロトニン再取り込み阻害薬</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　睡眠時間減少、誇大性、多弁、深夜の活動増加は躁エピソードを示唆。</div>
+    </article>
+    <article class="qcard" id="q-2024-6">
+      <div class="qhead"><span class="qid">2024-6</span><span class="answer">正答：a・b・e</span></div>
+      <div class="stem">躁状態でみられる症状はどれか。３つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 観念奔逸</div>
+        <div class="choice">b. 行為心迫</div>
+        <div class="choice">c. 罪業妄想</div>
+        <div class="choice">d. 食思不振</div>
+        <div class="choice">e. 睡眠欲求の低下</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-22">
+      <div class="qhead"><span class="qid">2025-22</span><span class="answer">正答：a・b・d</span></div>
+      <div class="stem">躁状態でみられる症状はどれか。3 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 観念奔逸</div>
+        <div class="choice">b. 行為心迫</div>
+        <div class="choice">c. 物とられ妄想</div>
+        <div class="choice">d. 自我感情の亢進</div>
+        <div class="choice">e. 睡眠時間の延長</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　観念奔逸、行為心迫、多弁、易刺激性、誇大性、睡眠欲求低下が特徴。双極性障害はうつ病相で受診することがあり、過去の躁・軽躁エピソードを必ず確認する。</p>
+      <p><span class="mark">年度比較</span>　2024年6は睡眠欲求低下、2025年22は自我感情の亢進が選択肢に追加。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-25">
+    <div class="themehead"><span class="index">25</span>
+      <h2 class="themetitle">双極性障害：薬物選択</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2023-23 / 2025-24　｜ 他テーマ参照：1問</div>
+    <article class="qcard long" id="q-2025-24">
+      <div class="qhead"><span class="qid">2025-24</span><span class="answer">正答：c</span></div>
+      <div class="stem">29
+        歳の女性。気分の落ち込みを主訴に来院した。抑うつ気分のほか、思考制止、意欲低下、興味関心の低下、不安感、食思不振、希死念慮を認めた。付き添いの恋人によると、半年くらい前に、夜も眠らず友人に電話をかけまくる時期が 3
+        週間ほどあったという。その際の睡眠時間は 1 日 3 時間程度で、多弁で、些細なことで激昂し、周囲が対応に苦慮したとのこと。身体診察にて異常は認めない。頭部
+        CT、甲状腺機能を含めた採血検査でも異常は認めない。違法薬物の使用歴やアルコール多飲歴はない。 この患者にまず投与すべき薬剤はどれか。</div>
+      <div class="choices">
+        <div class="choice">a. パロキセチン</div>
+        <div class="choice">b. イミプラミン</div>
+        <div class="choice">c. 炭酸リチウム</div>
+        <div class="choice">d. ハロペリドール</div>
+        <div class="choice">e. メチルフェニデート</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　現時点は抑うつでも、過去に躁エピソードがあり双極性障害として治療を検討。</div>
+    </article>
+    <div class="crossref">関連する既出問題（重複掲載を省略）：2023-23 → 24</div>
+    <div class="explain">
+      <p><span class="mark">解説</span>　躁病相や双極性障害の維持治療にリチウム・バルプロ酸などの気分安定薬を用いる。双極性うつ病に抗うつ薬単剤を安易に使用すると躁転等のリスクがある。</p>
+      <p><span class="mark">年度比較</span>　2023年23は躁状態でリチウム・バルプロ酸、2025年24は躁病既往を伴う抑うつ症例でリチウムを選ぶ。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-26">
+    <div class="themehead"><span class="index">26</span>
+      <h2 class="themetitle">季節性感情障害</h2>
+    </div>
+    <div class="submeta">該当：2025-23</div>
+    <article class="qcard" id="q-2025-23">
+      <div class="qhead"><span class="qid">2025-23</span><span class="answer">正答：a・c</span></div>
+      <div class="stem">季節性感情障害について正しいのはどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 炭水化物飢餓が生じる。</div>
+        <div class="choice">b. 夏に抑うつを呈しやすい。</div>
+        <div class="choice">c. 夜間睡眠の延長が起こる。</div>
+        <div class="choice">d. 女性に比べて男性で多い。</div>
+        <div class="choice">e. 緯度が低いほど罹患率が上がる。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　冬季型では過眠、過食・炭水化物渇望、体重増加がみられ、春に軽快しやすい。高緯度地域に多い傾向。高照度光療法などを検討する。</p>
+      <p><span class="mark">年度比較</span>　2025年新規の独立問題。炭水化物渇望・睡眠延長が正答。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-27">
+    <div class="themehead"><span class="index">27</span>
+      <h2 class="themetitle">電気けいれん療法（ECT）</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-50 / 2024-8 / 2025-25　｜ 他テーマ参照：1問</div>
+    <article class="qcard" id="q-2023-50">
+      <div class="qhead"><span class="qid">2023-50</span><span class="answer">正答：a・d</span></div>
+      <div class="stem">電気けいれん療法が有効な病態はどれか。2つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. うつ病</div>
+        <div class="choice">b. せん妄</div>
+        <div class="choice">c. ナルコレプシー</div>
+        <div class="choice">d. 緊張型統合失調症</div>
+        <div class="choice">e. 境界性パーソナリティ障害</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-25">
+      <div class="qhead"><span class="qid">2025-25</span><span class="answer">正答：b・c</span></div>
+      <div class="stem">修正型電気けいれん療法が適応となる病像・病態はどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 注意欠如多動症の衝動性</div>
+        <div class="choice">b. 薬物治療抵抗性の重症うつ病</div>
+        <div class="choice">c. 統合失調症の緊張病性昏迷</div>
+        <div class="choice">d. 強迫性障害の洗浄強迫</div>
+        <div class="choice">e. アルツハイマー型認知症の妄想</div>
+      </div>
+    </article>
+    <div class="crossref">関連する既出問題（重複掲載を省略）：2024-8 → 23</div>
+    <div class="explain">
+      <p><span class="mark">解説</span>　修正型ECTは薬物治療抵抗性の重症うつ病、緊張病性昏迷などに有効。全身麻酔・筋弛緩下に行い、てんかんの標準治療ではない。</p>
+      <p><span class="mark">年度比較</span>　2023年50と2025年25は適応を2つ選択、2024年8は希死念慮・治療抵抗性の症例。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-28">
+    <div class="themehead"><span class="index">28</span>
+      <h2 class="themetitle">認知行動療法・精神分析・森田療法</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-24 / 2024-13 / 2025-28</div>
+    <article class="qcard" id="q-2025-28">
+      <div class="qhead"><span class="qid">2025-28</span><span class="answer">正答：c・d</span></div>
+      <div class="stem">正しいのはどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 認知行動療法では無意識や防衛機制を治療対象とする。</div>
+        <div class="choice">b. 精神分析では強く意識している感情や記憶を無意識化する。</div>
+        <div class="choice">c. 認知行動療法では認知の偏りの修正と適応的行動の学習が中心となる。</div>
+        <div class="choice">d. 神経症とは、心因によって精神症状や身体症状が引き起こされた状態である。</div>
+        <div class="choice">e. 森田療法では感情を「あるがまま」に放置すると神経症が悪化するとされる。</div>
+      </div>
+      <div class="variation" id="q-2023-24"><span
+          class="variid">2023-24｜正答：b・d</span>　2023年度では選択肢が異なる：b「森田療法の初期では患者は隔離され、臥床して過ごす。」／c「精神分析では強く意識している感情や記憶を無意識化する。」（代表問題ではb）／d「認知行動療法では認知の偏りの修正と適応的行動の学習が中心となる。」（代表問題ではc）。
+      </div>
+      <div class="variation" id="q-2024-13"><span
+          class="variid">2024-13｜正答：c・d</span>　2024年度では選択肢が異なる：c「認知行動療法では認知のゆがみの修正と適応的行動の学習が中心となる。」／d「フロイトは、本能的欲動の抑圧が神経症の発症に関与していると考えた。」。
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　CBTは自動思考・認知の偏りと行動パターンに働きかける。精神分析は無意識・防衛機制を扱う。森田療法は症状をあるがまま受け止め、目的本位の行動を重視する。</p>
+      <p><span class="mark">年度比較</span>　2023年は森田療法の初期絶対臥褥、2024年はフロイトの抑圧、2025年は神経症の定義を含む。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-29">
+    <div class="themehead"><span class="index">29</span>
+      <h2 class="themetitle">PTSD・解離・強迫症</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-25 / 2024-14 / 2025-29</div>
+    <article class="qcard" id="q-2025-29">
+      <div class="qhead"><span class="qid">2025-29</span><span class="answer">正答：b</span></div>
+      <div class="stem">正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. フラッシュバックは全般性不安障害でみられる。</div>
+        <div class="choice">b. 解離性同一性障害では患者が被虐待体験を有することが多い。</div>
+        <div class="choice">c. 心的外傷後ストレス障害の発症には個人の性格が大きく関わる。</div>
+        <div class="choice">d. 心気症（病気不安症）は癌など重大な疾患に罹患した際に出現しやすい。</div>
+        <div class="choice">e. 強迫思考とは、明らかに間違っているのに患者が正しいと確信している思考である。</div>
+      </div>
+      <div class="variation" id="q-2023-25"><span
+          class="variid">2023-25｜正答：b</span>　2023年度では選択肢が異なる：a「心的外傷後ストレス障害では覚醒度が低下する。」／b「喉頭異常感覚（ヒステリー球）は転換性障害で出現する。」／d「解離性障害では、精神・身体症状に対して強い苦痛を訴えることが多い。」。
+        <div class="flag"><span class="mark">原問注意</span>　ヒステリー球と転換性障害の対応は古い分類に依存するため、臨床診断では鑑別が必要。</div>
+      </div>
+      <div class="variation" id="q-2024-14"><span
+          class="variid">2024-14｜正答：b</span>　2024年度では選択肢が異なる：c「心的外傷後ストレス障害の発症には個人の性格が大きく関与する。」／d「解離性障害では、精神・身体症状に対して強い苦痛を訴えることが多い。」。
+      </div>
+    </article>
+    <div class="explain">
+      <p><span
+          class="mark">解説</span>　PTSDでは侵入症状（フラッシュバック）、回避、認知・気分の陰性変化、過覚醒。解離性同一性障害には虐待などの外傷歴がみられることがある。強迫思考は自我違和的な反復思考で、妄想とは異なる。
+      </p>
+      <p><span class="mark">年度比較</span>　2024・2025年は解離性同一性障害と虐待歴が正答。性格だけでPTSDを説明しない。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-30">
+    <div class="themehead"><span class="index">30</span>
+      <h2 class="themetitle">パニック障害・広場恐怖</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-26 / 2024-15 / 2024-22 / 2025-7 / 2025-30</div>
+    <article class="qcard" id="q-2023-26">
+      <div class="qhead"><span class="qid">2023-26</span><span class="answer">正答：b・c</span></div>
+      <div class="stem">正しいのはどれか。 2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. パニック障害はしばしば発作時に予期不安を伴う。</div>
+        <div class="choice">b. 小児期の適応障害ではしばしば退行現象が出現する。</div>
+        <div class="choice">c. 社交不安障害では他者の視線を浴びる状況に恐怖を感じる。</div>
+        <div class="choice">d. 広場恐怖症では誰もいないところで恐怖を感じる。</div>
+        <div class="choice">e. 心気症（病気不安症）は癌など重大な疾患に伴って出現しやすい。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-15">
+      <div class="qhead"><span class="qid">2024-15</span><span class="answer">正答：c・d</span></div>
+      <div class="stem">正しいのはどれか。２つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 限局性恐怖の治療には曝露反応妨害法を用いる。</div>
+        <div class="choice">b. パニック障害はしばしば発作時に予期不安を伴う。</div>
+        <div class="choice">c. 青年期の適応障害ではしばしば非社会的行動が出現する。</div>
+        <div class="choice">d. 社交不安障害では他者の視線を浴びる状況に恐怖を感じる。</div>
+        <div class="choice">e. 心気症（病気不安症）は癌など重大な疾患に伴って出現しやすい。</div>
+      </div>
+    </article>
+    <article class="qcard long" id="q-2025-7">
+      <div class="qhead"><span class="qid">2025-7</span><span class="answer">正答：d・e</span></div>
+      <div class="stem">33 歳の女性。31
+        歳時、運転中に突然、息苦しさ、動悸、冷汗およびめまいが出現し、気が遠のき、死ぬのではと恐怖に駆られて近医を受診した。処置を受けて発作は落ち着いたが、その後同様の発作がしばしば起きるようになり、内科、脳外科、婦人科および耳鼻科の受診を繰り返したが、異常は指摘されなかった。「また発作が起きるのでは」という心配も強くなった。
+        次第に銀行やデパートやスーパーも出かけることを避けるようになった。現在も発作は時々起こっている。 この患者で見られる精神症状として、適切なのはどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 退行</div>
+        <div class="choice">b. 解離</div>
+        <div class="choice">c. 身体化</div>
+        <div class="choice">d. 広場恐怖</div>
+        <div class="choice">e. 予期不安</div>
+      </div>
+      <div class="variation" id="q-2024-22"><span
+          class="variid">2024-22｜正答：c・d</span>　2024年では「広場恐怖」がc、「予期不安」がd。2025年7ではそれぞれd、eに変更されている。
+      </div>
+    </article>
+    <article class="qcard long" id="q-2025-30">
+      <div class="qhead"><span class="qid">2025-30</span><span class="answer">正答：d</span></div>
+      <div class="stem">25 歳の女性。突然起こる動悸や息苦しさを主訴に来院した。約 1
+        か月前、出勤時の電車内で突然、息苦しさと動悸、冷や汗が出始め、「このまま窒息して死んでしまうのではないか」という恐怖感に襲われた。次の駅で電車を降りたところ、症状は約 10
+        分で軽快した。以降、電車に乗ることを避けるようになったが、ひどく疲れている時には自宅でも同様の症状が出現する。心電図を含めた精査を行ったが、異常を認めない。 最も適切な治療はどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 家族療法</div>
+        <div class="choice">b. 芸術療法</div>
+        <div class="choice">c. 精神分析療法</div>
+        <div class="choice">d. 認知行動療法</div>
+        <div class="choice">e. 電気けいれん療法</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　予期不安や回避の悪循環に対して認知行動療法が有効。</div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　パニック発作は動悸・息苦しさ・死の恐怖などが急激に出現。予期不安は再発への不安、広場恐怖は逃げにくい場所・助けが得られない状況の回避。治療はCBTとSSRI等。
+      </p>
+      <p><span class="mark">年度比較</span>　2024年22と2025年7は33歳女性の同一症例。2025年30は電車内発作からCBTを選択。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-31">
+    <div class="themehead"><span class="index">31</span>
+      <h2 class="themetitle">睡眠衛生と不眠症</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2024-9 / 2025-31</div>
+    <article class="qcard" id="q-2024-9">
+      <div class="qhead"><span class="qid">2024-9</span><span class="answer">正答：c</span></div>
+      <div class="stem">不眠症患者に対する指導として正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 「90 分の倍数眠るようにしてください」</div>
+        <div class="choice">b. 「眠れなそうな日は寝酒をおすすめします」</div>
+        <div class="choice">c. 「朝起きたら日光を浴びるようにして下さい」</div>
+        <div class="choice">d. 「眠気がなくても自分で決めた就床時刻には寝床に就くようにして下さい」</div>
+        <div class="choice">e. 「前夜の睡眠に満足していないときは１時間以上昼寝をして下さい」</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-31">
+      <div class="qhead"><span class="qid">2025-31</span><span class="answer">正答：b</span></div>
+      <div class="stem">不眠症患者への助言として正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 積極的に昼寝をする。</div>
+        <div class="choice">b. 眠くなってから寝床に行く。</div>
+        <div class="choice">c. 寝付けない時は飲酒をする。</div>
+        <div class="choice">d. 寝る直前に熱いお風呂に入る。</div>
+        <div class="choice">e. 午前中はなるべく太陽の光を浴びないようにする。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　眠気が生じてから床に入り、朝は一定時刻に起床して日光を浴びる。寝酒・長時間の昼寝・眠れないまま寝床で過ごすことは避ける。</p>
+      <p><span class="mark">年度比較</span>　2024年は朝の日光、2025年は「眠くなってから寝床に行く」が正答。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-32">
+    <div class="themehead"><span class="index">32</span>
+      <h2 class="themetitle">睡眠障害：RBD・ナルコレプシー・概日リズム</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2023-28 / 2024-10</div>
+    <article class="qcard" id="q-2023-28">
+      <div class="qhead"><span class="qid">2023-28</span><span class="answer">正答：c・d</span></div>
+      <div class="stem">正しいのはどれか。2つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 夢中遊行はレム睡眠で起こる。</div>
+        <div class="choice">b. 夜驚症は高齢者で多くみられる。</div>
+        <div class="choice">c. ナルコレプシーでは情動脱力発作がみられる。</div>
+        <div class="choice">d. 概日リズム睡眠・覚醒障害には高照度光療法が有効である。</div>
+        <div class="choice">e. レストレスレッグス症候群の症状は朝に強く夜にかけて軽快する。</div>
+      </div>
+    </article>
+    <article class="qcard long" id="q-2024-10">
+      <div class="qhead"><span class="qid">2024-10</span><span class="answer">正答：d</span></div>
+      <div class="stem">72
+        歳の男性。夜間に寝言が多いことを妻に指摘され来院した。既往歴、家族歴には特記すべきことはない。同伴した妻によると、夜間に大声で叫んだり、足を振り上げて隣に寝ている妻を蹴とばしたりすることがあったという。神経診察に異常を認めない。血液検査、血液生化学検査、頭部単純
+        MRI に異常を認めない。 治療薬として適切なのはどれか</div>
+      <div class="choices">
+        <div class="choice">a. リスペリドン</div>
+        <div class="choice">b. バルプロ酸</div>
+        <div class="choice">c. ドネペジル</div>
+        <div class="choice">d. クロナゼパム</div>
+        <div class="choice">e. フルボキサミン</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span
+          class="mark">解説</span>　REM睡眠行動障害は夢内容に一致した発声・体動を示し、DLBなどの前駆症状にもなる。クロナゼパムが用いられることがある。ナルコレプシーでは情動脱力発作、概日リズム障害には光療法が有用。
+      </p>
+      <p><span class="mark">年度比較</span>　2024年10はRBD治療薬、2023年28は睡眠障害の特徴を横断的に出題。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-33">
+    <div class="themehead"><span class="index">33</span>
+      <h2 class="themetitle">睡眠薬と作用機序</h2>
+    </div>
+    <div class="submeta">該当：2023-29</div>
+    <article class="qcard" id="q-2023-29">
+      <div class="qhead"><span class="qid">2023-29</span><span class="answer">正答：a・d</span></div>
+      <div class="stem">正しいのはどれか。2つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. オレキシン受容体拮抗薬は睡眠薬として用いられている。</div>
+        <div class="choice">b. 寝床の中で過ごす時間を長くするほど熟睡ができる。</div>
+        <div class="choice">c. 高齢患者には健康のために睡眠薬より寝酒を勧める。</div>
+        <div class="choice">d. 抗アレルギー薬の眠気は抗ヒスタミン作用による。</div>
+        <div class="choice">e. 朝に強い日光を浴びると寝つきが悪くなる。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　オレキシン受容体拮抗薬は覚醒維持を抑え、睡眠を促進。抗ヒスタミン作用は眠気を生じる。睡眠時間を延ばすために長時間寝床にいることは逆効果となり得る。</p>
+      <p><span class="mark">年度比較</span>　2023年はオレキシン受容体拮抗薬と抗ヒスタミン作用が正答。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-34">
+    <div class="themehead"><span class="index">34</span>
+      <h2 class="themetitle">レストレスレッグス症候群</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2023-28 / 2025-32　｜ 他テーマ参照：1問</div>
+    <article class="qcard" id="q-2025-32">
+      <div class="qhead"><span class="qid">2025-32</span><span class="answer">正答：b・c・e</span></div>
+      <div class="stem">レストレスレッグス症候群について正しいのはどれか。3 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 男性に多い。</div>
+        <div class="choice">b. 透析患者で多い。</div>
+        <div class="choice">c. 鉄欠乏がリスクとなる。</div>
+        <div class="choice">d. 抗パーキンソン病薬で誘発される。</div>
+        <div class="choice">e. 周期性四肢運動障害を合併しやすい。</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　レストレスレッグス症候群は鉄欠乏・腎機能障害との関連を確認する。</div>
+    </article>
+    <div class="crossref">関連する既出問題（重複掲載を省略）：2023-28 → 32</div>
+    <div class="explain">
+      <p><span class="mark">解説</span>　安静時に脚の不快感・動かしたい衝動が増悪し、動かすと軽快、夕方・夜間に悪化する。鉄欠乏、腎不全・透析と関連。周期性四肢運動を伴いやすい。</p>
+      <p><span class="mark">年度比較</span>　2025年32は透析・鉄欠乏・周期性四肢運動を3つ選択。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-35">
+    <div class="themehead"><span class="index">35</span>
+      <h2 class="themetitle">正常脳波・睡眠脳波</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-30 / 2024-16 / 2024-17 / 2025-33 / 2025-34</div>
+    <article class="qcard" id="q-2023-30">
+      <div class="qhead"><span class="qid">2023-30</span><span class="answer">正答：b・d</span></div>
+      <div class="stem">正常脳波はどれか。2つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 三相波</div>
+        <div class="choice">b. 開眼によるα抑制</div>
+        <div class="choice">c. 優位律動の徐波化</div>
+        <div class="choice">d. 睡眠Stage2のK-complex</div>
+        <div class="choice">e. 前頭部間欠性律動性デルタ活動</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-16">
+      <div class="qhead"><span class="qid">2024-16</span><span class="answer">正答：b・d</span></div>
+      <div class="stem">正常脳波はどれか。２つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 三相波</div>
+        <div class="choice">b. 光駆動</div>
+        <div class="choice">c. 徐波群発</div>
+        <div class="choice">d. 開眼によるα抑制</div>
+        <div class="choice">e. 周期性同期性放電</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-17">
+      <div class="qhead"><span class="qid">2024-17</span><span class="answer">正答：d</span></div>
+      <div class="stem">正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 筝曲導出では耳朶が基準となる。</div>
+        <div class="choice">b. 脳波記録では上向きが陽性である。</div>
+        <div class="choice">c. θ（シータ）波は 4Hz 未満の徐波である。</div>
+        <div class="choice">d. 低振幅は電位が 20μV 未満の脳波である。</div>
+        <div class="choice">e. ベンゾジアゼピン系薬剤により徐波が出現する。</div>
+      </div>
+      <div class="flag"><span class="mark">原問注意</span>　原本のaは「筝曲導出」と印字され、用語が不明確。耳朶基準は通常、単極導出の説明に当たる。原文を残し、解答確定を保留。</div>
+    </article>
+    <article class="qcard" id="q-2025-33">
+      <div class="qhead"><span class="qid">2025-33</span><span class="answer">正答：e</span></div>
+      <div class="stem">正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 深睡眠では速波が出現する。</div>
+        <div class="choice">b. 脳波記録では上向きが陽性である。</div>
+        <div class="choice">c. レム睡眠では K-complex が見られる。</div>
+        <div class="choice">d. ベンゾジアゼピン系薬剤により徐波が出現する。</div>
+        <div class="choice">e. α 波は周波数が 8Hz 以上 13Hz 未満の脳波である。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-34">
+      <div class="qhead"><span class="qid">2025-34</span><span class="answer">正答：b・e</span></div>
+      <div class="stem">正常脳波はどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 三相波</div>
+        <div class="choice">b. 光駆動</div>
+        <div class="choice">c. 閉眼による α 抑制</div>
+        <div class="choice">d. 周期性同期性放電</div>
+        <div class="choice">e. 過呼吸負荷による build-up</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　α波は約8–13Hz、閉眼安静覚醒時に後頭優位、開眼で抑制。光駆動は正常反応。N2睡眠ではK-complexと睡眠紡錘波。三相波・周期性同期性放電は病的所見。
+      </p>
+      <p><span class="mark">年度比較</span>　2023年はK-complex、2024年は開眼α抑制、2025年は光駆動と過呼吸build-upを問う。build-upは条件・年齢で正常反応となる。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-36">
+    <div class="themehead"><span class="index">36</span>
+      <h2 class="themetitle">てんかん発作の特徴</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2023-32 / 2024-18</div>
+    <article class="qcard" id="q-2023-32">
+      <div class="qhead"><span class="qid">2023-32</span><span class="answer">正答：b・c</span></div>
+      <div class="stem">正しいのはどれか。2つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. ミオクロニー発作は意識障害を伴う。</div>
+        <div class="choice">b. 側頭葉てんかんではMRIで海馬硬化がみられる。</div>
+        <div class="choice">c. 小児欠神てんかんでは3Hz棘徐波複合がみられる。</div>
+        <div class="choice">d. てんかん重積状態の第一選択薬はバルプロ酸である。</div>
+        <div class="choice">e. 発作時に舌縁を噛むのは心因性非てんかん発作を疑わせる。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-18">
+      <div class="qhead"><span class="qid">2024-18</span><span class="answer">正答：d</span></div>
+      <div class="stem">てんかんについて正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 小発作と大発作の違いは意識障害の有無で判定する。</div>
+        <div class="choice">b. てんかん重積状態の第一選択薬はバルプロ酸である。</div>
+        <div class="choice">c. カルバマゼピンは全般性てんかんの治療に用いられる。</div>
+        <div class="choice">d. てんかんでは粘着性や爆発性などの人格変化を認める。</div>
+        <div class="choice">e. ミオクロニー発作では意識消失と共に全身攣縮が出現する。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　小児欠神てんかんは3Hz棘徐波複合、側頭葉てんかんでは海馬硬化を伴うことがある。ミオクロニー発作は瞬間的な筋収縮。舌縁咬傷はてんかん発作を示唆。</p>
+      <p><span class="mark">年度比較</span>　2023年は側頭葉てんかん・小児欠神、2024年は人格変化に関する古典的記述を含む。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-37">
+    <div class="themehead"><span class="index">37</span>
+      <h2 class="themetitle">てんかん重積状態の初期治療</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-32 / 2024-18 / 2025-42　｜ 他テーマ参照：2問</div>
+    <article class="qcard" id="q-2025-42">
+      <div class="qhead"><span class="qid">2025-42</span><span class="answer">正答：a</span></div>
+      <div class="stem">てんかん重積状態の治療薬はどれか。</div>
+      <div class="choices">
+        <div class="choice">a. ジアゼパム</div>
+        <div class="choice">b. バルプロ酸</div>
+        <div class="choice">c. オランザピン</div>
+        <div class="choice">d. リスペリドン</div>
+        <div class="choice">e. カルバマゼピン</div>
+      </div>
+    </article>
+    <div class="crossref">関連する既出問題（重複掲載を省略）：2023-32 → 36 / 2024-18 → 36</div>
+    <div class="explain">
+      <p><span class="mark">解説</span>　けいれん性てんかん重積では気道・呼吸循環管理と並行してベンゾジアゼピン系薬（ジアゼパム、ロラゼパム、ミダゾラム等）を第一選択。必要時に第二選択薬へ進む。</p>
+      <p><span class="mark">年度比較</span>　2025年42はジアゼパム、2023・2024年はバルプロ酸を第一選択とする誤選択肢。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-38">
+    <div class="themehead"><span class="index">38</span>
+      <h2 class="themetitle">軽度意識障害と脳波</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2024-19 / 2025-43</div>
+    <article class="qcard" id="q-2024-19">
+      <div class="qhead"><span class="qid">2024-19</span><span class="answer">正答：d</span></div>
+      <div class="stem">軽度意識障害に当てはまるのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 思考散乱が認められる</div>
+        <div class="choice">b. 脳波は刺激に反応しない</div>
+        <div class="choice">c. 脳波は電気的無活動を呈する</div>
+        <div class="choice">d. 背景活動はθ波で構成される</div>
+        <div class="choice">e. 群発抑制交代パターンを呈する</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-43">
+      <div class="qhead"><span class="qid">2025-43</span><span class="answer">正答：a・d</span></div>
+      <div class="stem">軽度意識障害に当てはまるのはどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 思考散乱が認められる。</div>
+        <div class="choice">b. 脳波はほぼ平坦である。</div>
+        <div class="choice">c. 脳波は刺激に反応しない。</div>
+        <div class="choice">d. 背景活動は θ 波で構成される。</div>
+        <div class="choice">e. 群発抑制交代パターンを呈する。</div>
+      </div>
+      <div class="flag"><span class="mark">原問注意</span>　原問は「2つ選べ」。dは脳波徐波化で明確。aの「思考散乱」は意識混濁の表現として解釈が分かれる。</div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　軽度意識障害では背景活動の徐波化（θ波主体など）がみられる。脳波平坦・群発抑制交代・刺激反応消失は一般に重度障害を示唆。</p>
+      <p><span class="mark">年度比較</span>　2025年43は「2つ選べ」だが、掲載選択肢では明確な正答がdのみと考えられ、設問不備の可能性がある。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-39">
+    <div class="themehead"><span class="index">39</span>
+      <h2 class="themetitle">心理検査：質問紙法・投影法</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-33 / 2024-29 / 2025-44</div>
+    <article class="qcard" id="q-2025-44">
+      <div class="qhead"><span class="qid">2025-44</span><span class="answer">正答：b</span></div>
+      <div class="stem">心理検査について正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 投影法は集団に対して施行する。</div>
+        <div class="choice">b. ロールシャッハテストは投影法である。</div>
+        <div class="choice">c. バウムテストでは被験者の好きな絵をかいてもらう。</div>
+        <div class="choice">d. 知能検査のウェクスラー法は全年齢を対象に施行できる。</div>
+        <div class="choice">e. 作業検査法は欲求不満場面を絵で表し、反応を見る検査である。</div>
+      </div>
+      <div class="variation" id="q-2023-33"><span
+          class="variid">2023-33｜正答：a</span>　2023年度では選択肢が異なる：a「質問紙法は集団に対しては施行できる。」／b「ロールシャッハテストは質問紙法である。」。
+      </div>
+      <div class="variation" id="q-2024-29"><span
+          class="variid">2024-29｜正答：a</span>　2024年度では選択肢が異なる：a「質問紙法は集団に対して施行できる。」／b「ロールシャッハーテストは質問紙法である。」。
+      </div>
+    </article>
+    <div class="explain">
+      <p><span
+          class="mark">解説</span>　質問紙法は集団実施可能。ロールシャッハ・バウムは投影法。バウムテストは樹木を描く。ウェクスラー法は年齢別尺度を使い分ける。P-Fスタディは欲求不満場面への反応を調べる投影法。
+      </p>
+      <p><span class="mark">年度比較</span>　2023・2024年は質問紙法、2025年はロールシャッハが投影法であることを正答にする。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-40">
+    <div class="themehead"><span class="index">40</span>
+      <h2 class="themetitle">精神病床の最多疾患</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-35 / 2024-49 / 2025-35</div>
+    <article class="qcard" id="q-2025-35">
+      <div class="qhead"><span class="qid">2025-35</span><span class="answer">正答：b</span></div>
+      <div class="stem">日本の精神病床に入院している患者のうち、最も多い疾患はどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 双極性障害</div>
+        <div class="choice">b. 統合失調症</div>
+        <div class="choice">c. 発達障害</div>
+        <div class="choice">d. てんかん</div>
+        <div class="choice">e. 認知症</div>
+      </div>
+      <div class="variation" id="q-2023-35"><span class="variid">2023-35｜正答：b</span>　選択肢の構成・正答（b：統合失調症）は2024・2025年度と同じ。
+      </div>
+      <div class="variation" id="q-2024-49"><span class="variid">2024-49｜正答：b</span>　2023年・2025年とも同一主題、選択肢と正答はほぼ同一。
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　3年間の設問では統合失調症が正答。これは「精神病床の入院患者の疾患別構成」であり、外来患者数や一般人口での有病率とは異なる指標。</p>
+      <p><span class="mark">年度比較</span>　3年間ほぼ完全同一の問題。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-41">
+    <div class="themehead"><span class="index">41</span>
+      <h2 class="themetitle">日本の精神医療制度と動向</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-36 / 2024-50 / 2025-36</div>
+    <article class="qcard" id="q-2025-36">
+      <div class="qhead"><span class="qid">2025-36</span><span class="answer">正答：d</span></div>
+      <div class="stem">日本の精神医療の現状として誤っているのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 国民皆保険や医療のフリーアクセスは、日本の医療制度の特徴である。</div>
+        <div class="choice">b. 地域精神科医療において、地域包括ケアへの参入が進められている。</div>
+        <div class="choice">c. 厚労省は精神障害者の地域移行を進めている。</div>
+        <div class="choice">d. 精神科の入院日数は長くなっている。</div>
+        <div class="choice">e. 精神科の病床数は減少傾向にある。</div>
+      </div>
+      <div class="variation" id="q-2023-36"><span class="variid">2023-36｜正答：d</span>　3年間ほぼ同一の設問。誤りはd「精神科の入院日数は長くなっている」。
+      </div>
+      <div class="variation" id="q-2024-50"><span class="variid">2024-50｜正答：d</span>　3年間ほぼ同一の設問。誤りはd「精神科の入院日数は長くなっている」。
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　日本の精神科病床数は減少傾向で、平均在院日数は長期的には短縮傾向。地域移行・地域包括ケアを推進。国民皆保険とフリーアクセスは日本の制度的特徴。</p>
+      <p><span class="mark">年度比較</span>　3年間ほぼ同一問題。誤りは「入院日数は長くなっている」。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-42">
+    <div class="themehead"><span class="index">42</span>
+      <h2 class="themetitle">入院形態：任意・医療保護・措置</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-37 / 2024-42 / 2024-43 / 2025-37 / 2025-38</div>
+    <article class="qcard" id="q-2023-37">
+      <div class="qhead"><span class="qid">2023-37</span><span class="answer">正答：b</span></div>
+      <div class="stem">精神保健指定医2人の診察が必要なのはどの入院形態か。</div>
+      <div class="choices">
+        <div class="choice">a. 任意入院</div>
+        <div class="choice">b. 措置入院</div>
+        <div class="choice">c. 応急入院</div>
+        <div class="choice">d. 医療保護入院</div>
+        <div class="choice">e. 緊急措置入院</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　措置入院では原則2名の精神保健指定医による判定一致が必要。</div>
+    </article>
+    <article class="qcard long" id="q-2024-42">
+      <div class="qhead"><span class="qid">2024-42</span><span class="answer">正答：d</span></div>
+      <div class="stem">75 歳の女性。夜間に徘徊することに困った夫に付き添われて来院した。78
+        歳の夫と二人暮らしである。６０歳で発症したアルツハイマー型認知症が進行し、最近３か月は一人で出かけて自宅から離れた場所まで歩き回り、警察に保護されることが多くなった。徘徊や不眠などの原因精査と治療のため、
+        精神科病棟に入院することになった。本人はほとんど言葉を発せず、意思も確認できない。夫の認知機能に低下は認めない。 適切な入院形式はどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 応急入院</div>
+        <div class="choice">b. 措置入院</div>
+        <div class="choice">c. 任意入院</div>
+        <div class="choice">d. 医療保護入院</div>
+        <div class="choice">e. 緊急措置入院</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-43">
+      <div class="qhead"><span class="qid">2024-43</span><span class="answer">正答：d</span></div>
+      <div class="stem">医療保護入院する患者への説明として適切なのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 「弁護士と面会することはできません」</div>
+        <div class="choice">b. 「入院中に任意入院に切り替えることはありません」</div>
+        <div class="choice">c. 「入院治療が必要な入院目的について自分で考えましょう」</div>
+        <div class="choice">d. 「入院に納得いかない場合は精神医療審査会に申し立てができます」</div>
+        <div class="choice">e. 「退院の希望があった場合は７２時間に退院することができます」</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-37">
+      <div class="qhead"><span class="qid">2025-37</span><span class="answer">正答：d</span></div>
+      <div class="stem">精神障害者の保健、医療、福祉について正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 治療を行う際のインフォームド・コンセントは必要ない。</div>
+        <div class="choice">b. 緊急措置入院は複数の精神保健指定医の診察を必要とする。</div>
+        <div class="choice">c. 知的障害者の福祉対策は成人後も児童福祉法に基づいて行われる。</div>
+        <div class="choice">d. 精神保健福祉センターは精神保健福祉の知識について普及・啓発を行う。</div>
+        <div class="choice">e. 精神保健及び精神障害者福祉に関する法律（精神保健福祉法）の目的は犯罪予防である。</div>
+      </div>
+    </article>
+    <article class="qcard long" id="q-2025-38">
+      <div class="qhead"><span class="qid">2025-38</span><span class="answer">正答：a・c</span></div>
+      <div class="stem">19 歳男性。大学生。1 か月前から自室で独語をしながら片脚跳びをしている。母親に注意をされると「
+        『これをやめたら人生ゲームに乗り遅れる。やめたらおまえの負けだ』という声が聞こえてくる」と言い、夜間も片脚跳びを頻繁に行っていた。さらに注意されると興奮して大声を出すこともあった。次第に食事や睡眠がとれなくなり、両親に伴われて精神科を受診した。
+        担当医が入院治療の必要性を説明したが、本人は頑なに拒否している。両親は入院を希望している。 この患者に適応される入院形態に関して正しいのはどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 家族の同意が必要である。</div>
+        <div class="choice">b. 治療費は全額公費負担である。</div>
+        <div class="choice">c. 都道府県知事への届出が必要である。</div>
+        <div class="choice">d. 自らの申し出により退院が可能である。</div>
+        <div class="choice">e. 2 名以上の精神保健指定医の診察が必要である。</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　本人が入院を拒否し家族同意が得られており、医療保護入院が想定される。</div>
+    </article>
+    <div class="explain">
+      <p><span
+          class="mark">解説</span>　任意入院は本人同意。医療保護入院は本人の同意が得られず入院が必要な場合、精神保健指定医の診察等と家族等の同意など法定要件による。措置入院は自傷他害のおそれと原則2名の指定医の一致が必要。
+      </p>
+      <p><span class="mark">年度比較</span>　2023年37は2名の指定医、2024年42は医療保護入院、2025年38は本人拒否・家族同意の症例。法改正後の現行手続は別途確認が必要。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-43">
+    <div class="themehead"><span class="index">43</span>
+      <h2 class="themetitle">精神保健福祉センター</h2>
+    </div>
+    <div class="submeta">該当：2025-37　｜ 他テーマ参照：1問</div>
+    <div class="crossref">関連する既出問題（重複掲載を省略）：2025-37 → 42</div>
+    <div class="explain">
+      <p><span class="mark">解説</span>　精神保健福祉センターは相談・技術支援・知識普及啓発などを担う。精神保健福祉法の目的は医療・保護・社会復帰・福祉増進等であり犯罪予防ではない。</p>
+      <p><span class="mark">年度比較</span>　2025年37で独立して出題。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-44">
+    <div class="themehead"><span class="index">44</span>
+      <h2 class="themetitle">自殺の疫学</h2>
+    </div>
+    <div class="submeta">該当：2023-38</div>
+    <article class="qcard" id="q-2023-38">
+      <div class="qhead"><span class="qid">2023-38</span><span class="answer">正答：a</span></div>
+      <div class="stem">日本の自殺の現状について正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 女性より男性の方が多い。</div>
+        <div class="choice">b. 手段として入水が最も多い。</div>
+        <div class="choice">c. 自殺率は世界の中では低い方である。</div>
+        <div class="choice">d. 自殺者数は年間5万人を超えている。</div>
+        <div class="choice">e. 都道府県別の自殺率では東京が最も高い。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　日本の自殺者数は男性が女性より多い。手段・年齢・地域の分布は統計年度によって変化するため、最新の公的統計で確認する。</p>
+      <p><span class="mark">年度比較</span>　2023年は男女差を問う。数値暗記より方向性を優先。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-45">
+    <div class="themehead"><span class="index">45</span>
+      <h2 class="themetitle">神経梅毒・CJD・Huntington病・脳炎</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-39 / 2024-25 / 2025-39</div>
+    <article class="qcard" id="q-2025-39">
+      <div class="qhead"><span class="qid">2025-39</span><span class="answer">正答：d</span></div>
+      <div class="stem">誤っているのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 神経梅毒は、晩期に認知症状態が見られる。</div>
+        <div class="choice">b. ヘルペス脳炎では、幻覚妄想が高頻度に出現する。</div>
+        <div class="choice">c. Huntington 病の精神症状では、反社会的行動が見られる。</div>
+        <div class="choice">d. クロイツフェルト・ヤコブ病では、緩徐に認知機能障害が進行する。</div>
+        <div class="choice">e. 頭部外傷に伴う症候性てんかんでは、抗てんかん薬の投与を開始する。</div>
+      </div>
+      <div class="variation" id="q-2023-39"><span
+          class="variid">2023-39｜正答：a</span>　2023年ではa「神経梅毒は初期から認知症」が誤り。2025年はaが晩期に修正され、d「CJDが緩徐に進行」が誤りへ変更。
+      </div>
+      <div class="variation" id="q-2024-25"><span
+          class="variid">2024-25｜正答：a</span>　2024年もa「神経梅毒は初期から認知症」が誤り。2025年ではaが正しい記述になり、誤りがdへ移る。
+      </div>
+    </article>
+    <div class="explain">
+      <p><span
+          class="mark">解説</span>　神経梅毒は晩期に進行麻痺などの認知機能障害を生じ得る。CJDは急速進行性認知症が典型。HSV脳炎では精神症状・意識障害・けいれんなどを伴う。Huntington病は運動・精神・認知症状を示す。
+      </p>
+      <p><span class="mark">年度比較</span>　2023・2024年は「神経梅毒は初期から認知症」が誤り。2025年は「CJDは緩徐に進行」が誤り。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-46">
+    <div class="themehead"><span class="index">46</span>
+      <h2 class="themetitle">橋本脳炎・抗NMDA受容体脳炎</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-40 / 2024-27 / 2025-40</div>
+    <article class="qcard" id="q-2025-40">
+      <div class="qhead"><span class="qid">2025-40</span><span class="answer">正答：b</span></div>
+      <div class="stem">誤っているのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 橋本脳炎では、甲状腺機能異常は少ない。</div>
+        <div class="choice">b. 橋本脳炎の治療では、甲状腺ホルモン補充療法が行われる。</div>
+        <div class="choice">c. 抗 NMDA 受容体脳炎では、緊張病症状がしばしば見られる。</div>
+        <div class="choice">d. 抗 NMDA 受容体脳炎では、卵巣奇形腫を高頻度に合併する。</div>
+        <div class="choice">e. 橋本脳炎の血液検査所見では、抗 TPO 抗体の陽性が特徴的である。</div>
+      </div>
+      <div class="variation" id="q-2023-40"><span
+          class="variid">2023-40｜正答：a</span>　2023年はa「橋本脳炎の病勢は甲状腺機能低下と相関する」が誤り。2025年ではb「ホルモン補充が治療」が誤りに変更。
+      </div>
+      <div class="variation" id="q-2024-27"><span
+          class="variid">2024-27｜正答：a</span>　2024年ではa「橋本脳炎の病勢と甲状腺機能低下が相関する」が誤り。2025年は同内容を除き、bを変更。
+      </div>
+    </article>
+    <div class="explain">
+      <p><span
+          class="mark">解説</span>　橋本脳炎は甲状腺機能と病勢が必ずしも相関せず、ステロイドなど免疫療法を検討。抗TPO抗体陽性は非特異的で診断には鑑別が必要。抗NMDA受容体脳炎では精神症状、緊張病、異常運動、卵巣奇形腫の合併がある。
+      </p>
+      <p><span class="mark">年度比較</span>　2023・2024年は甲状腺機能との相関、2025年は甲状腺ホルモン補充のみを治療とする記述が誤り。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-47">
+    <div class="themehead"><span class="index">47</span>
+      <h2 class="themetitle">ステロイド・CO中毒・肝性脳症</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2024-28 / 2025-41</div>
+    <article class="qcard" id="q-2024-28">
+      <div class="qhead"><span class="qid">2024-28</span><span class="answer">正答：d</span></div>
+      <div class="stem">症状精神病、中毒性精神障害の特徴として誤っているのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 肝性脳症では、脳波で三相波がみられることがある。</div>
+        <div class="choice">b. インターフェロンは抑うつ状態を惹起することがある。</div>
+        <div class="choice">c. 副腎皮質ステロイドは抑うつ状態、躁状態のいずれも誘発する可能性がある。</div>
+        <div class="choice">d. 副腎皮質ステロイドによる精神症状は、副腎皮質ステロイドの増量によって治療する。</div>
+        <div class="choice">e. 一酸化炭素中毒の間歇型では、急性症状の改善後数日～一か月の無症状期を経て精神症状が再燃する。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-41">
+      <div class="qhead"><span class="qid">2025-41</span><span class="answer">正答：c</span></div>
+      <div class="stem">誤っているのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 肝性脳症では、脳波で三相波が見られることがある。</div>
+        <div class="choice">b. インターフェロンは、不眠や抑うつ状態を惹起することがある。</div>
+        <div class="choice">c. 一酸化炭素中毒の間歇型では、急性症状と同時に精神症状が出現する。</div>
+        <div class="choice">d. 副腎皮質ステロイドによる精神症状では、副腎皮質ステロイドの減量を検討する。</div>
+        <div class="choice">e. 副腎皮質ステロイドは、抑うつ状態、躁状態のいずれも誘発する可能性がある。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　副腎皮質ステロイドは躁・うつ・精神病症状を誘発し、可能なら減量を検討。肝性脳症では三相波を認めることがある。CO中毒間歇型は一時改善後に遅発性神経精神症状を示す。
+      </p>
+      <p><span class="mark">年度比較</span>　2024年はステロイド増量、2025年はCO中毒の間歇型が急性期と同時に起こるとの記述が誤り。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-48">
+    <div class="themehead"><span class="index">48</span>
+      <h2 class="themetitle">アルコール離脱</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2023-41 / 2024-41</div>
+    <article class="qcard" id="q-2023-41">
+      <div class="qhead"><span class="qid">2023-41</span><span class="answer">正答：b</span></div>
+      <div class="stem">
+        67歳の男性。全身性けいれん発作により搬送され入院となった。アルコール依存症で精神科受診歴があるが、依存状態は続いており、一昨日の朝まで大量に飲酒していたという。診察時は意識清明で、見当識障害は認めないが、軽度の焦燥感がある。入院時に発現が危惧されるアルコール離脱症状はどれか。
+      </div>
+      <div class="choices">
+        <div class="choice">a. 病的酩酊</div>
+        <div class="choice">b. 小動物幻視</div>
+        <div class="choice">c. イネイブリング</div>
+        <div class="choice">d. コルサコフ症候群</div>
+        <div class="choice">e. フラッシュバック</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-41">
+      <div class="qhead"><span class="qid">2024-41</span><span class="answer">正答：c・d</span></div>
+      <div class="stem">67 歳の男性。全身けいれん発作により搬送され入院となった。アルコール依存症で精神科受診歴があるが、依存状態は続いており、一昨日の朝まで大量に飲酒していたという。診療時は意識清明で、
+        見当識障害は認めないが、軽度の焦燥感がある。 入院時に発現が危惧されるアルコール離脱症状はどれか。２つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 作話</div>
+        <div class="choice">b. 病的酩酊</div>
+        <div class="choice">c. 作業せん妄</div>
+        <div class="choice">d. 小動物幻視</div>
+        <div class="choice">e. イネイブリング</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　断酒後数時間〜数日で振戦・自律神経症状・けいれん、重症では振戦せん妄や小動物幻視を生じる。作話はKorsakoff症候群で典型的。</p>
+      <p><span class="mark">年度比較</span>　2024年は小動物幻視・作業せん妄を選択。2023年は小動物幻視を選択。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-49">
+    <div class="themehead"><span class="index">49</span>
+      <h2 class="themetitle">Wernicke脳症とビタミンB1</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2023-42 / 2025-46</div>
+    <article class="qcard" id="q-2025-46">
+      <div class="qhead"><span class="qid">2025-46</span><span class="answer">正答：b</span></div>
+      <div class="stem">50 歳の男性。大酒家である。飲酒した翌朝不穏な行動を家族に発見され来院した。歩行は不安定であり、側方注視時に眼振を両側に認める。 補正すべきなのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. ビタミン A</div>
+        <div class="choice">b. ビタミン B1</div>
+        <div class="choice">c. ビタミン B6</div>
+        <div class="choice">d. ビタミン B12</div>
+        <div class="choice">e. ビタミン C</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　眼振・運動失調のある大酒家では、ビタミンB1欠乏を優先評価・補正。</div>
+      <div class="variation" id="q-2023-42"><span
+          class="variid">2023-42｜正答：b</span>　2023・2025年とも大酒家・眼振・失調の同一症例で、補正するのはビタミンB1（b）。
+        <div>アルコール多飲と眼振・歩行失調はWernicke脳症を示唆し、B1を補充。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　アルコール多飲・栄養障害で眼球運動障害、運動失調、意識障害を認めたらWernicke脳症を疑い、速やかにチアミン（B1）を補充する。三徴は全て揃うとは限らない。
+      </p>
+      <p><span class="mark">年度比較</span>　2023年42と2025年46は50歳大酒家・眼振・歩行失調の同一症例。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-50">
+    <div class="themehead"><span class="index">50</span>
+      <h2 class="themetitle">覚醒剤精神病</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2024-40 / 2025-47</div>
+    <article class="qcard" id="q-2025-47">
+      <div class="qhead"><span class="qid">2025-47</span><span class="answer">正答：b・e</span></div>
+      <div class="stem">覚せい剤精神病でみられるのはどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 意識変容</div>
+        <div class="choice">b. 逆耐性現象</div>
+        <div class="choice">c. 万華鏡的幻視</div>
+        <div class="choice">d. 自律神経の嵐</div>
+        <div class="choice">e. フラッシュバック</div>
+      </div>
+      <div class="variation" id="q-2024-40"><span
+          class="variid">2024-40｜正答：b・e</span>　2024年は「1つ選べ」と明記せず「どれか」の形式で、b（逆耐性）とe（フラッシュバック）がともに該当。2025年は明示的に「2つ選べ」。
+        <div class="flag"><span class="mark">原問注意</span>　b（逆耐性）とe（フラッシュバック）はどちらも覚醒剤精神病に関連。2025年度は「2つ選べ」に変更。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　覚醒剤精神病では被害妄想・幻聴などを認め、逆耐性（少量で再燃しやすい）や再使用・ストレスによるフラッシュバック様再燃が知られる。</p>
+      <p><span class="mark">年度比較</span>　2024年は単一選択、2025年は2つ選択で逆耐性とフラッシュバック。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-51">
+    <div class="themehead"><span class="index">51</span>
+      <h2 class="themetitle">境界性パーソナリティ障害</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-44 / 2024-44 / 2025-48</div>
+    <article class="qcard long" id="q-2023-44">
+      <div class="qhead"><span class="qid">2023-44</span><span class="answer">正答：e</span></div>
+      <div class="stem">
+        25歳の未婚女性。過量服薬のために救急車で搬送された。これまでも慢性の抑うつ状態の中で死にたいとしきりに訴え、手首を切るなどの自傷行為や家族の目の前で車に飛び込もうとする行動がみられていた。こうした衝動行為の後にはイライラ感が減少するという。気分がよいときは、相手に極端な好意を寄せて付き合うかと思うと、些細な行き違いから急に怒りだしては相手をひどく責めることがたびたびあった。また、男女関係ではこれまで同棲しては別れるということを4回繰り返して、現在は無職である。会話は普通にできるが、家庭内葛藤が強い。最も考えられるのはどれか。
+      </div>
+      <div class="choices">
+        <div class="choice">a. パニック障害</div>
+        <div class="choice">b. 気分循環性障害</div>
+        <div class="choice">c. 気分変調性障害</div>
+        <div class="choice">d. 統合失調感情障害</div>
+        <div class="choice">e. 境界性パーソナリティ障害</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-44">
+      <div class="qhead"><span class="qid">2024-44</span><span class="answer">正答：c</span></div>
+      <div class="stem">境界性パーソナリティー障害について正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 自己像は一貫しており自己評価は高い</div>
+        <div class="choice">b. 診療では特別な対応が必要である。</div>
+        <div class="choice">c. 気分が変わりやすく空虚感が強い</div>
+        <div class="choice">d. 対人関係は安定している</div>
+        <div class="choice">e. 希死念慮はまれである</div>
+      </div>
+      <div class="flag"><span class="mark">原問注意</span>　b「特別な対応が必要」は解釈が曖昧。cの気分不安定・空虚感は疾患特徴として明確。</div>
+    </article>
+    <article class="qcard" id="q-2025-48">
+      <div class="qhead"><span class="qid">2025-48</span><span class="answer">正答：d</span></div>
+      <div class="stem">境界性パーソナリティ障害について正しいのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 自己像が確立しており自己評価が高い。</div>
+        <div class="choice">b. 診療では特別な対応が必要である。</div>
+        <div class="choice">c. 気分は安定しており充実感をもつ。</div>
+        <div class="choice">d. 希死念慮や自殺企図をみとめる。</div>
+        <div class="choice">e. 対人関係は安定している。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　不安定な対人関係・自己像・感情、衝動性、自傷・自殺企図、慢性的空虚感が特徴。診療では一貫した治療枠組みと危機対応が重要。</p>
+      <p><span class="mark">年度比較</span>　2023年は症例診断、2024年は気分変動と空虚感、2025年は希死念慮・自殺企図。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-52">
+    <div class="themehead"><span class="index">52</span>
+      <h2 class="themetitle">神経性やせ症：特徴・重症度</h2><span class="badge">3年連続出題</span>
+    </div>
+    <div class="submeta">該当：2023-43 / 2023-46 / 2023-47 / 2024-45 / 2024-47 / 2025-27 / 2025-50</div>
+    <article class="qcard" id="q-2023-43">
+      <div class="qhead"><span class="qid">2023-43</span><span class="answer">正答：a・b・e</span></div>
+      <div class="stem">主として青年期にみられるのはどれか。3つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 自己臭症</div>
+        <div class="choice">b. 対人恐怖</div>
+        <div class="choice">c. 反響言語</div>
+        <div class="choice">d. 貧困妄想</div>
+        <div class="choice">e. 神経性無食欲症</div>
+      </div>
+    </article>
+    <article class="qcard long" id="q-2023-46">
+      <div class="qhead"><span class="qid">2023-46</span><span class="answer">正答：a・b・e</span></div>
+      <div class="stem">
+        15歳女子。中学生。3か月で8kgの体重減少をみとめ、母親に連れられて初診した。半年前に陸上部の部長に抜擢された。深夜まで熱心に勉強し、「体力作りのため」1時間かけて走って登校するようになった。身長168cm、体重44kg。体温35.4℃、心拍数48回/分。眼瞼結膜貧血あり。礼儀正しく質問の理解も良好。痩せていることを指摘すると「計画的に食事をとっています」と述べ低体重を否認していた。予想される所見はどれか。3つ選べ。
+      </div>
+      <div class="choices">
+        <div class="choice">a. 低血圧</div>
+        <div class="choice">b. 肥満恐怖</div>
+        <div class="choice">c. 連合弛緩</div>
+        <div class="choice">d. 下痢止めの乱用</div>
+        <div class="choice">e. 体型への自己認知の歪み</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　低血圧・肥満恐怖・ボディイメージ障害が典型。下痢止めの乱用は典型所見でない。</div>
+    </article>
+    <article class="qcard" id="q-2023-47">
+      <div class="qhead"><span class="qid">2023-47</span><span class="answer">正答：c</span></div>
+      <div class="stem">小児の精神発達について誤っているのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 青年期では自我同一性の問題が生じやすい。</div>
+        <div class="choice">b. 乳児期において母親との関係を通して基本的信頼感を得る。</div>
+        <div class="choice">c. エディプスコンプレックスでは、異性の親に対して敵対心を抱く。</div>
+        <div class="choice">d. 幼児期においては、しつけを通して自分の欲求を抑制することを学ぶ。</div>
+        <div class="choice">e. 乳幼児期における過保護や放任は、欲求不満耐性の低い性格の形成に関連する。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2024-45">
+      <div class="qhead"><span class="qid">2024-45</span><span class="answer">正答：c・d</span></div>
+      <div class="stem">神経性やせ症（神経性無食欲症）に関する記述として正しいのはどれか。２つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 非行や暴力など、周囲に対し挑発的な病前性格がみられる。</div>
+        <div class="choice">b. BMI（肥満指数：Body Mass Index）が２３以上である。</div>
+        <div class="choice">c. 制限型から過食・排出型に移行することがある。</div>
+        <div class="choice">d. 低体温、徐脈などの身体症状を認める。</div>
+        <div class="choice">e. 男性に多い。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-27">
+      <div class="qhead"><span class="qid">2025-27</span><span class="answer">正答：b・c</span></div>
+      <div class="stem">神経性やせ症について正しいのはどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 家族が原因で発症する。</div>
+        <div class="choice">b. 女性の方が男性より多い。</div>
+        <div class="choice">c. 最も死亡率が高い精神疾患の 1 つである。</div>
+        <div class="choice">d. 食べる気持ちが起きるまで待ってゆっくり治療する事が大事である。</div>
+        <div class="choice">e. 食事より精神面の問題から治療するのが原則である。</div>
+      </div>
+      <div class="variation" id="q-2024-47"><span
+          class="variid">2024-47｜正答：b・e</span>　2024年はb「女性に多い」とe「死亡率が高い」。2025年では死亡率の選択肢がcとなる。
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-50">
+      <div class="qhead"><span class="qid">2025-50</span><span class="answer">正答：b</span></div>
+      <div class="stem">神経性無食欲症に関する記述として誤っているのはどれか。</div>
+      <div class="choices">
+        <div class="choice">a. 完全主義、強迫傾向、食事への高い関心をみとめる。</div>
+        <div class="choice">b. BMI（肥満指数：Body Mass Index）が 23 以上である。</div>
+        <div class="choice">c. 制限型から過食・排出型に移行することがある。</div>
+        <div class="choice">d. 低体温、徐脈などの身体症状をみとめる。</div>
+        <div class="choice">e. 女性に多い。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　女性に多く、低体重・肥満恐怖・体型認知の歪み、徐脈・低体温・無月経などが特徴。精神疾患の中でも死亡リスクが高い。低体重患者では身体的安全性評価が先決。</p>
+      <p><span class="mark">年度比較</span>　2025年50はBMI23以上を誤りとして選択。2023・2024年も女性優位・死亡リスクを反復。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-53">
+    <div class="themehead"><span class="index">53</span>
+      <h2 class="themetitle">神経性やせ症：症例と介入</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2024-46 / 2025-49</div>
+    <article class="qcard long" id="q-2024-46">
+      <div class="qhead"><span class="qid">2024-46</span><span class="answer">正答：a・c・d</span></div>
+      <div class="stem">15 歳の女子。小児科医から、低体重と不眠を指摘され精神科を紹介された。母親に連れられて初診した。中学校での成績は良好、新体操部ではキャプテンを務めていた。母親によると夏前から部活が忙しく、
+        ２学期の中間テストの結果がよくなかったことで落ち込んでいたという。 身長 150cm 体重 32kg。 体温 35.4℃、心拍数 48 回/分。初経 13
+        歳、月経周期は不順。礼儀正しく、質問の理解も良好。「勉強スケジュールをこなさないと眠れないだけです」「部活ではもっと痩せている子もいます」「食事はバランスを考えて食べています」と語った。
+        診断、治療介入として正しいのはどれか。3 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 血液検査と心電図を施行する。</div>
+        <div class="choice">b. 入院させ、速やかに高カロリー輸液を開始する。</div>
+        <div class="choice">c. 食事日記をつけてもらい、食事量と気分の把握を行う。</div>
+        <div class="choice">d. やせ願望の有無と自身のボディイメージについて確認する。</div>
+        <div class="choice">e. 便秘になりやすいため、刺激性の緩下剤の内服を推奨する。</div>
+      </div>
+    </article>
+    <article class="qcard long" id="q-2025-49">
+      <div class="qhead"><span class="qid">2025-49</span><span class="answer">正答：c・d</span></div>
+      <div class="stem">13
+        歳女子。低体重と過剰な運動のため、小児科からの紹介で母親に連れられて初診した。中学校での成績は良好、夏のコンクールに向けて毎日放課後バレエ教室に通っていた。母によると、練習に打ち込んだにも関わらずコンクールの成績が良くなかったことで落ち込んでいたという。
+        身長 150cm、体重 32kg、体温 35.4℃、心拍数 48 回/分。初経 11
+        歳、月経周期は不順。礼儀正しく、質問の理解も良好。「食事は栄養バランスを考えて摂っています」「足を細くしないとコンクールで評価されないんです」と語った。 診断・治療介入について正しいのはどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 低体重は切迫しておらず血液検査は不要である。</div>
+        <div class="choice">b. 医療保護入院させ速やかに高カロリー輸液を開始する。</div>
+        <div class="choice">c. 食事日記をつけてもらい、食事量と気分の把握を行う。</div>
+        <div class="choice">d. 1 日の運動量と自身のボディイメージについて確認する。</div>
+        <div class="choice">e. 便秘になりやすいため、刺激性の緩下剤の内服を推奨する。</div>
+      </div>
+      <div class="question_note"><span class="mark">着眼点</span>　徐脈・著しい低体重があり身体合併症を評価する。栄養回復は再栄養症候群に注意。</div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　低体重・徐脈を伴う思春期患者では血液検査・心電図など身体評価を行い、摂取量・運動量・ボディイメージを把握。栄養回復時はリフィーディング症候群に注意し段階的に介入。
+      </p>
+      <p><span class="mark">年度比較</span>　2024年は15歳・新体操・BMI約14.2、2025年は13歳・バレエ・同じ身長体重。2025年は食事日記と運動量・ボディイメージが正答。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-54">
+    <div class="themehead"><span class="index">54</span>
+      <h2 class="themetitle">神経性過食症</h2>
+    </div>
+    <div class="submeta">該当：2023-45</div>
+    <article class="qcard" id="q-2023-45">
+      <div class="qhead"><span class="qid">2023-45</span><span class="answer">正答：a・d</span></div>
+      <div class="stem">神経性過食症について正しいのはどれか。2つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 病的窃盗やアルコール依存症が合併することがある。</div>
+        <div class="choice">b. BMI（肥満指数：Body Mass Index）は17未満である。</div>
+        <div class="choice">c. 代償行動として自己誘発嘔吐が必ずみられる。</div>
+        <div class="choice">d. 体型に左右された低い自己評価が特徴である。</div>
+        <div class="choice">e. 治療としてむちゃ食い（binge eating）を禁止する。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span
+          class="mark">解説</span>　反復する過食と不適切な代償行動、体型・体重に左右される自己評価が特徴。BMIは必ずしも低くなく、嘔吐以外の代償行動もあり得る。衝動性や物質使用の問題が併存することがある。
+      </p>
+      <p><span class="mark">年度比較</span>　2023年は病的窃盗・アルコール依存と自己評価が正答。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-55">
+    <div class="themehead"><span class="index">55</span>
+      <h2 class="themetitle">ASDの診断</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2023-48 / 2024-48</div>
+    <article class="qcard" id="q-2024-48">
+      <div class="qhead"><span class="qid">2024-48</span><span class="answer">正答：a・b・d</span></div>
+      <div class="stem">自閉症スペクトラム症について正しいのはどれか。３つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 社会的コミュニケーションにおける持続的な欠陥が見られる。</div>
+        <div class="choice">b. 対人的相互反応における持続的な欠陥が見られる。</div>
+        <div class="choice">c. 感覚過敏があることは診断には必須である。</div>
+        <div class="choice">d. 行動、興味、または活動の限定された反復的な様式を示す。</div>
+        <div class="choice">e. 幼少期に必ず言葉の遅れを呈する。</div>
+      </div>
+      <div class="variation" id="q-2023-48"><span
+          class="variid">2023-48｜正答：a・b・d</span>　2023年度では選択肢が異なる：c「感覚過敏がある事が診断には必須である。」。
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　社会的コミュニケーション・相互作用の持続的困難と、限定的・反復的行動が中核。感覚過敏や言語発達遅滞は必須ではない。</p>
+      <p><span class="mark">年度比較</span>　2023・2024年はほぼ同一の5選択肢。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-56">
+    <div class="themehead"><span class="index">56</span>
+      <h2 class="themetitle">ADHDの診断と支援</h2><span class="badge">頻出</span>
+    </div>
+    <div class="submeta">該当：2023-49 / 2025-26</div>
+    <article class="qcard" id="q-2023-49">
+      <div class="qhead"><span class="qid">2023-49</span><span class="answer">正答：a・b・e</span></div>
+      <div class="stem">注意欠如・多動性障害に関して正しいものはどれか。 3 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 症状は年齢が上がるにつれて改善する事が多い。</div>
+        <div class="choice">b. 男性の方が女性より多い。</div>
+        <div class="choice">c. 薬物療法以外に治療法はない。</div>
+        <div class="choice">d. 診断基準は、年齢が異なっても同じである。</div>
+        <div class="choice">e. 12歳前に症状が見られることが診断に必須である。</div>
+      </div>
+    </article>
+    <article class="qcard" id="q-2025-26">
+      <div class="qhead"><span class="qid">2025-26</span><span class="answer">正答：a・e</span></div>
+      <div class="stem">注意欠如多動症（ADHD）について正しいのはどれか。2 つ選べ。</div>
+      <div class="choices">
+        <div class="choice">a. 主要症状は不注意（注意集中の困難）と多動・衝動性である。</div>
+        <div class="choice">b. 診断のためには就学前に症状が存在している事が必要である。</div>
+        <div class="choice">c. 学校で不注意と多動・衝動性が見られたら診断をつけることができる。</div>
+        <div class="choice">d. 症状は年齢が上がっても変化しない。</div>
+        <div class="choice">e. 治療では薬物療法に加えてペアレントトレーニングを含む環境調整が重要である。</div>
+      </div>
+    </article>
+    <div class="explain">
+      <p><span class="mark">解説</span>　不注意、多動性・衝動性が主症状。12歳以前の症状、複数の場面での支障などを確認。環境調整、心理社会的支援、ペアレントトレーニング、薬物療法を組み合わせる。</p>
+      <p><span class="mark">年度比較</span>　2023年は年齢・性差・診断基準、2025年は環境調整とペアレントトレーニングを追加。</p>
+    </div>
+  </section>
+  <section class="theme" id="topic-57">
+    <div class="themehead"><span class="index">57</span>
+      <h2 class="themetitle">発達心理学・青年期</h2>
+    </div>
+    <div class="submeta">該当：2023-47　｜ 他テーマ参照：1問</div>
+    <div class="crossref">関連する既出問題（重複掲載を省略）：2023-47 → 52</div>
+    <div class="explain">
+      <p><span class="mark">解説</span>　Eriksonの青年期の課題は自我同一性。乳児期の基本的信頼感、幼児期の自律性、Freudのエディプス葛藤では同性親への競争心などを整理する。</p>
+      <p><span class="mark">年度比較</span>　2023年47は「異性の親に敵対心」が誤り。</p>
+    </div>
+  </section>
+  <div class="footnotes">
+    <p><span
+        class="mark">原文校訂について</span>　2023年はスキャンPDFを各ページの画像と照合し、2024・2025年は検索可能な原本PDFの本文から再取得しています。「思考伝播→考想伝播」「仮設→仮説」「公認心理士→公認心理師」など明らかな誤記を修正しました。
+    </p>
+    <p>2024-17の「筝曲導出」、2024-31の「観念逸脱」のように、意図を一意に特定できない語は、医学的な正誤を変えないため原文のまま掲載しています。</p>
+    <p>精神保健福祉法に関する説明は2026年時点の基本事項を補記しています。2024年4月施行の改正後、医療保護入院には入院期間の設定・更新手続が設けられています。試験問題の年度と現行制度を分けて扱ってください。</p>
+    <p>参照原本：『2023年 精神医学 本試験 問題.pdf』『2024
+      精神医学.pdf』『2025年_精神医学_過去問.pdf』。制度確認：e-Gov法令検索（精神保健福祉法）および厚生労働省『令和6年4月1日以降に医療保護入院した者の入院期間について』。</p>
+  </div>
+  <h2 class="indexhead">年度別・問題番号索引</h2>
+  <p class="note">全150問を1回ずつ掲載または重複統合。数字は本文中のテーマ番号です。</p>
+  <div class="year_index"><span class="mark">2023年度（50問）</span>
+    <div class="indexrow">
+      <span class="indexitem"><a href="#topic-1">2023-1 → 01</a></span>
+      <span class="indexitem"><a href="#topic-3">2023-2 → 03</a></span>
+      <span class="indexitem"><a href="#topic-2">2023-3 → 02</a></span>
+      <span class="indexitem"><a href="#topic-21">2023-4 → 21</a></span>
+      <span class="indexitem"><a href="#topic-6">2023-5 → 06</a></span>
+      <span class="indexitem"><a href="#topic-8">2023-6 → 08</a></span>
+      <span class="indexitem"><a href="#topic-9">2023-7 → 09</a></span>
+      <span class="indexitem"><a href="#topic-8">2023-8 → 08</a></span>
+      <span class="indexitem"><a href="#topic-9">2023-9 → 09</a></span>
+      <span class="indexitem"><a href="#topic-12">2023-10 → 12</a></span>
+      <span class="indexitem"><a href="#topic-13">2023-11 → 13</a></span>
+      <span class="indexitem"><a href="#topic-17">2023-12 → 17</a></span>
+      <span class="indexitem"><a href="#topic-18">2023-13 → 18</a></span>
+      <span class="indexitem"><a href="#topic-19">2023-14 → 19</a></span>
+      <span class="indexitem"><a href="#topic-20">2023-15 → 20</a></span>
+      <span class="indexitem"><a href="#topic-11">2023-16 → 11</a></span>
+      <span class="indexitem"><a href="#topic-10">2023-17 → 10</a></span>
+      <span class="indexitem"><a href="#topic-24">2023-18 → 24</a></span>
+      <span class="indexitem"><a href="#topic-22">2023-19 → 22</a></span>
+      <span class="indexitem"><a href="#topic-22">2023-20 → 22</a></span>
+      <span class="indexitem"><a href="#topic-24">2023-21 → 24</a></span>
+      <span class="indexitem"><a href="#topic-23">2023-22 → 23</a></span>
+      <span class="indexitem"><a href="#topic-24">2023-23 → 24</a></span>
+      <span class="indexitem"><a href="#topic-28">2023-24 → 28</a></span>
+      <span class="indexitem"><a href="#topic-29">2023-25 → 29</a></span>
+      <span class="indexitem"><a href="#topic-30">2023-26 → 30</a></span>
+      <span class="indexitem"><a href="#topic-15">2023-27 → 15</a></span>
+      <span class="indexitem"><a href="#topic-32">2023-28 → 32</a></span>
+      <span class="indexitem"><a href="#topic-33">2023-29 → 33</a></span>
+      <span class="indexitem"><a href="#topic-35">2023-30 → 35</a></span>
+      <span class="indexitem"><a href="#topic-14">2023-31 → 14</a></span>
+      <span class="indexitem"><a href="#topic-36">2023-32 → 36</a></span>
+      <span class="indexitem"><a href="#topic-39">2023-33 → 39</a></span>
+      <span class="indexitem"><a href="#topic-17">2023-34 → 17</a></span>
+      <span class="indexitem"><a href="#topic-40">2023-35 → 40</a></span>
+      <span class="indexitem"><a href="#topic-41">2023-36 → 41</a></span>
+      <span class="indexitem"><a href="#topic-42">2023-37 → 42</a></span>
+      <span class="indexitem"><a href="#topic-44">2023-38 → 44</a></span>
+      <span class="indexitem"><a href="#topic-45">2023-39 → 45</a></span>
+      <span class="indexitem"><a href="#topic-46">2023-40 → 46</a></span>
+      <span class="indexitem"><a href="#topic-48">2023-41 → 48</a></span>
+      <span class="indexitem"><a href="#topic-49">2023-42 → 49</a></span>
+      <span class="indexitem"><a href="#topic-52">2023-43 → 52</a></span>
+      <span class="indexitem"><a href="#topic-51">2023-44 → 51</a></span>
+      <span class="indexitem"><a href="#topic-54">2023-45 → 54</a></span>
+      <span class="indexitem"><a href="#topic-52">2023-46 → 52</a></span>
+      <span class="indexitem"><a href="#topic-52">2023-47 → 52</a></span>
+      <span class="indexitem"><a href="#topic-55">2023-48 → 55</a></span>
+      <span class="indexitem"><a href="#topic-56">2023-49 → 56</a></span>
+      <span class="indexitem"><a href="#topic-27">2023-50 → 27</a></span>
+    </div>
+  </div>
+  <div class="year_index"><span class="mark">2024年度（50問）</span>
+    <div class="indexrow">
+      <span class="indexitem"><a href="#topic-1">2024-1 → 01</a></span>
+      <span class="indexitem"><a href="#topic-4">2024-2 → 04</a></span>
+      <span class="indexitem"><a href="#topic-2">2024-3 → 02</a></span>
+      <span class="indexitem"><a href="#topic-22">2024-4 → 22</a></span>
+      <span class="indexitem"><a href="#topic-22">2024-5 → 22</a></span>
+      <span class="indexitem"><a href="#topic-24">2024-6 → 24</a></span>
+      <span class="indexitem"><a href="#topic-23">2024-7 → 23</a></span>
+      <span class="indexitem"><a href="#topic-23">2024-8 → 23</a></span>
+      <span class="indexitem"><a href="#topic-31">2024-9 → 31</a></span>
+      <span class="indexitem"><a href="#topic-32">2024-10 → 32</a></span>
+      <span class="indexitem"><a href="#topic-3">2024-11 → 03</a></span>
+      <span class="indexitem"><a href="#topic-3">2024-12 → 03</a></span>
+      <span class="indexitem"><a href="#topic-28">2024-13 → 28</a></span>
+      <span class="indexitem"><a href="#topic-29">2024-14 → 29</a></span>
+      <span class="indexitem"><a href="#topic-30">2024-15 → 30</a></span>
+      <span class="indexitem"><a href="#topic-35">2024-16 → 35</a></span>
+      <span class="indexitem"><a href="#topic-35">2024-17 → 35</a></span>
+      <span class="indexitem"><a href="#topic-36">2024-18 → 36</a></span>
+      <span class="indexitem"><a href="#topic-38">2024-19 → 38</a></span>
+      <span class="indexitem"><a href="#topic-22">2024-20 → 22</a></span>
+      <span class="indexitem"><a href="#topic-6">2024-21 → 06</a></span>
+      <span class="indexitem"><a href="#topic-30">2024-22 → 30</a></span>
+      <span class="indexitem"><a href="#topic-20">2024-23 → 20</a></span>
+      <span class="indexitem"><a href="#topic-17">2024-24 → 17</a></span>
+      <span class="indexitem"><a href="#topic-45">2024-25 → 45</a></span>
+      <span class="indexitem"><a href="#topic-19">2024-26 → 19</a></span>
+      <span class="indexitem"><a href="#topic-46">2024-27 → 46</a></span>
+      <span class="indexitem"><a href="#topic-47">2024-28 → 47</a></span>
+      <span class="indexitem"><a href="#topic-39">2024-29 → 39</a></span>
+      <span class="indexitem"><a href="#topic-17">2024-30 → 17</a></span>
+      <span class="indexitem"><a href="#topic-8">2024-31 → 08</a></span>
+      <span class="indexitem"><a href="#topic-9">2024-32 → 09</a></span>
+      <span class="indexitem"><a href="#topic-7">2024-33 → 07</a></span>
+      <span class="indexitem"><a href="#topic-9">2024-34 → 09</a></span>
+      <span class="indexitem"><a href="#topic-10">2024-35 → 10</a></span>
+      <span class="indexitem"><a href="#topic-12">2024-36 → 12</a></span>
+      <span class="indexitem"><a href="#topic-13">2024-37 → 13</a></span>
+      <span class="indexitem"><a href="#topic-15">2024-38 → 15</a></span>
+      <span class="indexitem"><a href="#topic-16">2024-39 → 16</a></span>
+      <span class="indexitem"><a href="#topic-50">2024-40 → 50</a></span>
+      <span class="indexitem"><a href="#topic-48">2024-41 → 48</a></span>
+      <span class="indexitem"><a href="#topic-42">2024-42 → 42</a></span>
+      <span class="indexitem"><a href="#topic-42">2024-43 → 42</a></span>
+      <span class="indexitem"><a href="#topic-51">2024-44 → 51</a></span>
+      <span class="indexitem"><a href="#topic-52">2024-45 → 52</a></span>
+      <span class="indexitem"><a href="#topic-53">2024-46 → 53</a></span>
+      <span class="indexitem"><a href="#topic-52">2024-47 → 52</a></span>
+      <span class="indexitem"><a href="#topic-55">2024-48 → 55</a></span>
+      <span class="indexitem"><a href="#topic-40">2024-49 → 40</a></span>
+      <span class="indexitem"><a href="#topic-41">2024-50 → 41</a></span>
+    </div>
+  </div>
+  <div class="year_index"><span class="mark">2025年度（50問）</span>
+    <div class="indexrow">
+      <span class="indexitem"><a href="#topic-1">2025-1 → 01</a></span>
+      <span class="indexitem"><a href="#topic-2">2025-2 → 02</a></span>
+      <span class="indexitem"><a href="#topic-3">2025-3 → 03</a></span>
+      <span class="indexitem"><a href="#topic-3">2025-4 → 03</a></span>
+      <span class="indexitem"><a href="#topic-5">2025-5 → 05</a></span>
+      <span class="indexitem"><a href="#topic-6">2025-6 → 06</a></span>
+      <span class="indexitem"><a href="#topic-30">2025-7 → 30</a></span>
+      <span class="indexitem"><a href="#topic-8">2025-8 → 08</a></span>
+      <span class="indexitem"><a href="#topic-8">2025-9 → 08</a></span>
+      <span class="indexitem"><a href="#topic-7">2025-10 → 07</a></span>
+      <span class="indexitem"><a href="#topic-15">2025-11 → 15</a></span>
+      <span class="indexitem"><a href="#topic-15">2025-12 → 15</a></span>
+      <span class="indexitem"><a href="#topic-16">2025-13 → 16</a></span>
+      <span class="indexitem"><a href="#topic-8">2025-14 → 08</a></span>
+      <span class="indexitem"><a href="#topic-8">2025-15 → 08</a></span>
+      <span class="indexitem"><a href="#topic-12">2025-16 → 12</a></span>
+      <span class="indexitem"><a href="#topic-13">2025-17 → 13</a></span>
+      <span class="indexitem"><a href="#topic-17">2025-18 → 17</a></span>
+      <span class="indexitem"><a href="#topic-19">2025-19 → 19</a></span>
+      <span class="indexitem"><a href="#topic-20">2025-20 → 20</a></span>
+      <span class="indexitem"><a href="#topic-22">2025-21 → 22</a></span>
+      <span class="indexitem"><a href="#topic-24">2025-22 → 24</a></span>
+      <span class="indexitem"><a href="#topic-26">2025-23 → 26</a></span>
+      <span class="indexitem"><a href="#topic-25">2025-24 → 25</a></span>
+      <span class="indexitem"><a href="#topic-27">2025-25 → 27</a></span>
+      <span class="indexitem"><a href="#topic-56">2025-26 → 56</a></span>
+      <span class="indexitem"><a href="#topic-52">2025-27 → 52</a></span>
+      <span class="indexitem"><a href="#topic-28">2025-28 → 28</a></span>
+      <span class="indexitem"><a href="#topic-29">2025-29 → 29</a></span>
+      <span class="indexitem"><a href="#topic-30">2025-30 → 30</a></span>
+      <span class="indexitem"><a href="#topic-31">2025-31 → 31</a></span>
+      <span class="indexitem"><a href="#topic-34">2025-32 → 34</a></span>
+      <span class="indexitem"><a href="#topic-35">2025-33 → 35</a></span>
+      <span class="indexitem"><a href="#topic-35">2025-34 → 35</a></span>
+      <span class="indexitem"><a href="#topic-40">2025-35 → 40</a></span>
+      <span class="indexitem"><a href="#topic-41">2025-36 → 41</a></span>
+      <span class="indexitem"><a href="#topic-42">2025-37 → 42</a></span>
+      <span class="indexitem"><a href="#topic-42">2025-38 → 42</a></span>
+      <span class="indexitem"><a href="#topic-45">2025-39 → 45</a></span>
+      <span class="indexitem"><a href="#topic-46">2025-40 → 46</a></span>
+      <span class="indexitem"><a href="#topic-47">2025-41 → 47</a></span>
+      <span class="indexitem"><a href="#topic-37">2025-42 → 37</a></span>
+      <span class="indexitem"><a href="#topic-38">2025-43 → 38</a></span>
+      <span class="indexitem"><a href="#topic-39">2025-44 → 39</a></span>
+      <span class="indexitem"><a href="#topic-9">2025-45 → 09</a></span>
+      <span class="indexitem"><a href="#topic-49">2025-46 → 49</a></span>
+      <span class="indexitem"><a href="#topic-50">2025-47 → 50</a></span>
+      <span class="indexitem"><a href="#topic-51">2025-48 → 51</a></span>
+      <span class="indexitem"><a href="#topic-53">2025-49 → 53</a></span>
+      <span class="indexitem"><a href="#topic-52">2025-50 → 52</a></span>
+    </div>
+  </div>
+  <a class="backtop" href="#theme-index" aria-label="テーマ一覧へ戻る">テーマ一覧へ ↑</a>
+</body>
+
+</html>
