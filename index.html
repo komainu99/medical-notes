@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>講義ノート</title>
+  <style>
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body {
+      margin: 0;
+      background: #f7f8fa;
+      color: #243047;
+      font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+      line-height: 1.7;
+    }
+    main { width: min(100% - 40px, 640px); margin: 15vh auto 60px; }
+    section { padding: clamp(24px, 5vw, 40px); background: #fff; border: 1px solid #e1e5eb; border-radius: 12px; }
+    h1 { margin: 0 0 24px; font-size: clamp(20px, 4.5vw, 26px); font-weight: 600; }
+    form { display: flex; flex-wrap: wrap; gap: 12px; }
+    input, button { font: inherit; border-radius: 6px; padding: 10px 14px; }
+    input { flex: 1 1 180px; width: 100%; min-width: 0; border: 1px solid #aeb8c7; }
+    button { border: 1px solid #294d7a; background: #294d7a; color: #fff; cursor: pointer; }
+    button:hover { background: #1d3a60; }
+    :focus-visible { outline: 3px solid #759ed3; outline-offset: 3px; }
+    #error { width: 100%; margin: 0; color: #b42318; font-size: 14px; }
+    ul { margin: 0; padding-left: 1.4em; }
+    li + li { margin-top: 12px; }
+    a { color: #294d7a; text-underline-offset: 4px; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <main>
+    <section id="gate" aria-labelledby="question">
+      <h1 id="question">学部長の苗字はなにか</h1>
+      <form id="answer-form">
+        <input id="answer" name="answer" type="text" aria-labelledby="question" aria-describedby="error" autocomplete="off" required>
+        <button type="submit">回答する</button>
+        <p id="error" role="alert" hidden>回答が違います。もう一度入力してください。</p>
+      </form>
+    </section>
+    <section id="notes" aria-labelledby="notes-title" hidden>
+      <h1 id="notes-title" tabindex="-1">講義ノート</h1>
+      <ul>
+        <!-- ノートを追加するときは、このリストにリンクを追加してください。 -->
+        <li><a href="./精神医学_2023-2025_統合過去問解説_HTML版.html">精神医学 2023〜2025年度 統合過去問解説</a></li>
+      </ul>
+    </section>
+    <noscript><p>このページを表示するにはJavaScriptを有効にしてください。</p></noscript>
+  </main>
+  <script>
+    const storageKey = 'lecture-notes-access';
+    const gate = document.getElementById('gate');
+    const notes = document.getElementById('notes');
+    const answer = document.getElementById('answer');
+    const error = document.getElementById('error');
+
+    function showNotes() {
+      gate.hidden = true;
+      notes.hidden = false;
+      document.getElementById('notes-title').focus();
+    }
+
+    // GitHub Pages上の簡易ゲートです。機密情報を保護する認証ではありません。
+    try {
+      if (sessionStorage.getItem(storageKey) === 'granted') showNotes();
+    } catch {
+      // ストレージが使えない場合でも、回答による表示は可能にします。
+    }
+
+    document.getElementById('answer-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (answer.value.trim() !== '木下') {
+        error.hidden = false;
+        answer.setAttribute('aria-invalid', 'true');
+        answer.focus();
+        return;
+      }
+      try {
+        sessionStorage.setItem(storageKey, 'granted');
+      } catch {
+        // ストレージが使えない場合は、この表示中のみ許可します。
+      }
+      answer.value = '';
+      showNotes();
+    });
+
+    answer.addEventListener('input', () => {
+      error.hidden = true;
+      answer.removeAttribute('aria-invalid');
+    });
+  </script>
+</body>
+</html>
